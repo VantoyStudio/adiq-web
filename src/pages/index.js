@@ -1,5 +1,8 @@
 import * as React from "react"
-
+import Navbar from "../components/navbar"
+import Footer from "../components/footer"
+import { StaticImage } from "gatsby-plugin-image"
+import {Grid, Button, Typography} from "@material-ui/core"
 // styles
 const pageStyles = {
   color: "#232129",
@@ -128,56 +131,165 @@ const links = [
 // markup
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
-        <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
-        </span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
-        <span role="img" aria-label="Sunglasses smiley emoji">
-          😎
-        </span>
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
+    <div>
+      <Navbar />
+      {/* <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          background: 'black',
+          width: '98.25vw',
+          height: '90vh'
+        }}
+      >
+        <StaticImage
+          src=""
+          alt="billboards"
+          placeholder="blurred"
+          layout="fixed"
+          width={1280}
+          height={720}
+          
+        />
+      </div> */}
+
+      <div style={{ display: "grid", background: 'black' }}>
+      {/* You can use a GatsbyImage component if the image is dynamic */}
+        <StaticImage
+          style={{
+            gridArea: "1/1",
+            // You can set a maximum height for the image, if you wish.
+            // maxHeight: 600,
+            background: "center no-repeat",
+            backgroundSize: "cover",
+            zIndex: 1
+          }}
+          layout="fullWidth"
+          // You can optionally force an aspect ratio for the generated image
+          aspectRatio={2 / 1}
+          // This is a presentational image, so the alt should be an empty string
+          alt="photo"
+          // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
+          src={
+            "../images/photo.jpg"
+          }
+          formats={["auto", "webp", "avif"]}
+        />
+        <div
+          style={{
+            // By using the same grid area for both, they are stacked on top of each other
+            gridArea: "1/1",
+            position: "relative",
+            zIndex: 2,
+            // This centers the other elements inside the hero component
+            placeItems: "center",
+            display: "grid",
+            background: "rgba(0, 0, 0, 0.5)"
+          }}
+        >
+          {/* Any content here will be centered in the component */}
+          <div style={{position: "relative", zIndex: 3, color: "white", border: '1px solid white', minWidth: '50vw', minHeight: "70vh", display: "grid", placeItems: "center"}}>
+            <div style={{ minHeight: "30vh", display: "grid", placeItems: "center"}}>
+              <Typography variant="h3">Connect to a Screen</Typography>
+              <Typography variant="h2">One Click</Typography>
+              <Typography variant="h5">Book your media now</Typography>
+              <Button style={{margin: '0 0.5rem', width: '90%'}} variant="contained"> Get Started </Button>
+            </div>
+            <div style={{width: '100%'}}>
+            <Grid flex align="center" container>
+              <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+                <Grid>
+                  Card for Billboards
+                </Grid>
+              </Grid>
+              <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+                <Grid>
+                Card for Shops
+                </Grid>
+              </Grid>
+              <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+                <Grid>
+                Card for Bus
+                </Grid>
+              </Grid>
+            </Grid>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div>
+        <Grid flex align="center" container>
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+            <Grid>
+              What Is Up
+            </Grid>
+          </Grid>
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+            <Grid>
+              What Is Up
+            </Grid>
+          </Grid>
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+            <Grid>
+              What Is Up
+            </Grid>
+          </Grid>
+        </Grid>
+      </div>  
+      <main style={pageStyles}>
+        
+        <title>Home Page</title>
+        
+        <h1 style={headingStyles}>
+          Congratulations
+          <br />
+          <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
+          <span role="img" aria-label="Party popper emojis">
+            🎉🎉🎉
+          </span>
+        </h1>
+        <p style={paragraphStyles}>
+          Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
+          update in real-time.{" "}
+          <span role="img" aria-label="Sunglasses smiley emoji">
+            😎
+          </span>
+        </p>
+        <ul style={listStyles}>
+          <li style={docLinkStyle}>
+            <a
+              style={linkStyle}
+              href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+            >
+              {docLink.text}
+            </a>
           </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
-    </main>
+          {links.map(link => (
+            <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
+              <span>
+                <a
+                  style={linkStyle}
+                  href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+                >
+                  {link.text}
+                </a>
+                {link.badge && (
+                  <span style={badgeStyle} aria-label="New Badge">
+                    NEW!
+                  </span>
+                )}
+                <p style={descriptionStyle}>{link.description}</p>
+              </span>
+            </li>
+          ))}
+        </ul>
+        <img
+          alt="Gatsby G Logo"
+          src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
+        />
+      </main>
+      <Footer />
+    </div>
   )
 }
 
