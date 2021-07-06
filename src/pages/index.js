@@ -2,131 +2,22 @@ import * as React from "react"
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import { StaticImage } from "gatsby-plugin-image"
-import {Grid, Button, Typography} from "@material-ui/core"
+import {Grid, Button, Typography, TextField} from "@material-ui/core"
+import StorefrontIcon from '@material-ui/icons/Storefront';
+import TvIcon from '@material-ui/icons/Tv';
+import AirportShuttleIcon from '@material-ui/icons/AirportShuttle';
+import EventNoteIconOutlined from '@material-ui/icons/EventNote';
+import PersonIconOutlined from '@material-ui/icons/Person';
+import VisibilityIconOutlined from '@material-ui/icons/Visibility';
+import SearchIcon from '@material-ui/icons/Search';
+import AssessmentIcon from '@material-ui/icons/Assessment';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 // styles
 const pageStyles = {
   color: "#232129",
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-// data
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
 
 // markup
 const IndexPage = () => {
@@ -162,7 +53,8 @@ const IndexPage = () => {
             // maxHeight: 600,
             background: "center no-repeat",
             backgroundSize: "cover",
-            zIndex: 1
+            zIndex: 1,
+            backgroundColor: 'black',
           }}
           layout="fullWidth"
           // You can optionally force an aspect ratio for the generated image
@@ -171,7 +63,7 @@ const IndexPage = () => {
           alt="photo"
           // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
           src={
-            "../images/photo.jpg"
+            "../images/photo2.jpg"
           }
           formats={["auto", "webp", "avif"]}
         />
@@ -184,105 +76,204 @@ const IndexPage = () => {
             // This centers the other elements inside the hero component
             placeItems: "center",
             display: "grid",
-            background: "rgba(0, 0, 0, 0.5)"
+            background: "rgba(0, 0, 0, 0.75)"
           }}
         >
           {/* Any content here will be centered in the component */}
-          <div style={{position: "relative", zIndex: 3, color: "white", border: '1px solid white', minWidth: '50vw', minHeight: "70vh", display: "grid", placeItems: "center"}}>
+          <div style={{position: "relative", zIndex: 3, color: "white", minWidth: '50vw', minHeight: "70vh", display: "grid", placeItems: "center"}}>
             <div style={{ minHeight: "30vh", display: "grid", placeItems: "center"}}>
               <Typography variant="h3">Connect to a Screen</Typography>
               <Typography variant="h2">One Click</Typography>
               <Typography variant="h5">Book your media now</Typography>
-              <Button style={{margin: '0 0.5rem', width: '90%'}} variant="contained"> Get Started </Button>
+              <Button style={{margin: '0 0.5rem', width: '100%', height: '2.75rem', borderRadius: 5}} variant="contained" color="primary"> Get Started </Button>
             </div>
             <div style={{width: '100%'}}>
             <Grid flex align="center" container>
               <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                <Grid>
-                  Card for Billboards
+              <Grid style={{padding: '1rem', background: 'rgb(76,77,78,0.75)', borderRadius: '1rem', maxWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+                  <Grid>
+                    BILLBOARDS
+                  </Grid>
+                  <Grid style={{padding: '1.5rem 1rem'}}>
+                    <TvIcon style={{transform: 'scale(3)'}}/>
+                  </Grid>
                 </Grid>
+                <Button style={{background: 'rgb(223,225,226,0.8)', width: '43%', marginTop: '0.5rem'}}>
+                  Book Now
+                </Button>
               </Grid>
               <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                <Grid>
-                Card for Shops
+                <Grid style={{padding: '1rem', background: 'rgb(76,77,78,0.75)', borderRadius: '1rem', maxWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+                  <Grid>
+                    SHOPS
+                  </Grid>
+                  <Grid style={{padding: '1.5rem 1rem'}}>
+                    <StorefrontIcon style={{transform: 'scale(3)'}}/>
+                  </Grid>
                 </Grid>
+                <Button style={{background: 'rgb(223,225,226,0.8)', width: '43%', marginTop: '0.5rem'}}>
+                  Book Now
+                </Button>
               </Grid>
               <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                <Grid>
-                Card for Bus
+                <Grid style={{padding: '1rem', background: 'rgb(76,77,78,0.75)', borderRadius: '1rem', maxWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+                  <Grid>
+                    <Typography>BUS</Typography>
+                  </Grid>
+                  <Grid style={{padding: '1.5rem 1rem'}}>
+                    <AirportShuttleIcon style={{transform: 'scale(3)'}}/>
+                  </Grid>
                 </Grid>
+                <Button style={{background: 'rgb(223,225,226,0.8)', width: '43%', marginTop: '0.5rem'}}>
+                  Book Now
+                </Button>
               </Grid>
             </Grid>
             </div>  
           </div>
         </div>
       </div>
-      <div>
-        <Grid flex align="center" container>
+      <div
+        style={{
+          // By using the same grid area for both, they are stacked on top of each other
+          gridArea: "1/1",
+          // This centers the other elements inside the hero component
+          placeItems: "center",
+          display: "grid",
+          color: 'white', background: 'black'
+        }}
+      >
+        <Grid flex align="center" container style={{maxWidth: '60vw', padding: '3rem', color: 'white', background: 'black'}}>
           <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-            <Grid>
-              What Is Up
+            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+              <Grid style={{padding: '1.5rem 1rem'}}>
+                <EventNoteIconOutlined  style={{transform: 'scale(3)'}}/>
+              </Grid>
+              <Grid>
+                <Typography>50,000+</Typography>
+                <Typography>Bookings</Typography>
+              </Grid>
             </Grid>
           </Grid>
           <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-            <Grid>
-              What Is Up
+            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+              <Grid style={{padding: '1.5rem 1rem'}}>
+                <PersonIconOutlined style={{transform: 'scale(3)'}}/>
+              </Grid>
+              <Grid>
+                <Typography>200+</Typography>
+                <Typography>Users</Typography>
+              </Grid>
             </Grid>
           </Grid>
           <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-            <Grid>
-              What Is Up
+            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+              <Grid style={{padding: '1.5rem 1rem'}}>
+                <VisibilityIconOutlined style={{transform: 'scale(3)'}}/>
+              </Grid>
+              <Grid>
+                <Typography>50,000+</Typography>
+                <Typography>Impressions</Typography>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
+      </div>
+      <div
+        style={{
+          // By using the same grid area for both, they are stacked on top of each other
+          gridArea: "1/1",
+          // This centers the other elements inside the hero component
+          placeItems: "center",
+          display: "grid",
+        }}
+      >
+        <Grid flex align="center" container style={{maxWidth: '60vw', padding: '3rem'}}>
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+              <Grid>
+                <Typography gutterBottom variant="subtitle2">Step 1</Typography>
+              </Grid>
+              <Grid style={{padding: '1.5rem 1rem'}}>
+                <SearchIcon  style={{transform: 'scale(3)'}}/>
+              </Grid>
+              <Grid>
+                <Typography>Browse</Typography>
+                <Typography variant="caption">Media Types and Locations</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+              <Grid>
+                <Typography gutterBottom variant="subtitle2">Step 2</Typography>
+              </Grid>
+              <Grid style={{padding: '1.5rem 1rem'}}>
+                <AssessmentIcon style={{transform: 'scale(3)'}}/>
+              </Grid>
+              <Grid>
+                <Typography>Compare</Typography>
+                <Typography variant="caption">Compare Media types</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+              <Grid>
+                <Typography gutterBottom variant="subtitle2">Step 3</Typography>
+              </Grid>
+              <Grid style={{padding: '1.5rem 1rem'}}>
+                <MonetizationOnIcon style={{transform: 'scale(3)'}}/>
+              </Grid>
+              <Grid>
+                <Typography>Pay</Typography>
+                <Typography variant="caption">Pay up</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </div>
+      <div
+        style={{
+          // By using the same grid area for both, they are stacked on top of each other
+          gridArea: "1/1",
+          // This centers the other elements inside the hero component
+          placeItems: "center",
+          display: "grid",
+        }}
+      >
+      {/* Contact form */}
+      <Typography variant="h3">Contact Us</Typography>
+      <Grid container spacing={3} style={{padding: '3rem', width: '100%'}}>
+        <Grid item xs={12} md={6} lg={6} style={{ border: '1px solid black'}}>
+            <StaticImage  
+              alt="photo"
+              src="../images/photo.jpg"
+              layout="fixed"
+              width={400}
+              height={300}
+            />
+        </Grid>
+        <Grid item xs={12} md={6} lg={6} style={{border: '1px solid black'}}>
+          <form>
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+            <TextField 
+              label="Name" 
+              type="text"
+              variant="outlined"
+            />
+            <TextField label="email" type="email" variant="outlined"/>
+            <TextField label="message" type="text" multiline rows={7} variant="outlined"/>
+            </div>
+          </form>
+        </Grid>
+      </Grid>
+
       </div>  
       <main style={pageStyles}>
         
         <title>Home Page</title>
         
-        <h1 style={headingStyles}>
-          Congratulations
-          <br />
-          <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
-          <span role="img" aria-label="Party popper emojis">
-            🎉🎉🎉
-          </span>
-        </h1>
-        <p style={paragraphStyles}>
-          Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-          update in real-time.{" "}
-          <span role="img" aria-label="Sunglasses smiley emoji">
-            😎
-          </span>
-        </p>
-        <ul style={listStyles}>
-          <li style={docLinkStyle}>
-            <a
-              style={linkStyle}
-              href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-            >
-              {docLink.text}
-            </a>
-          </li>
-          {links.map(link => (
-            <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-              <span>
-                <a
-                  style={linkStyle}
-                  href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-                >
-                  {link.text}
-                </a>
-                {link.badge && (
-                  <span style={badgeStyle} aria-label="New Badge">
-                    NEW!
-                  </span>
-                )}
-                <p style={descriptionStyle}>{link.description}</p>
-              </span>
-            </li>
-          ))}
-        </ul>
         <img
           alt="Gatsby G Logo"
           src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
