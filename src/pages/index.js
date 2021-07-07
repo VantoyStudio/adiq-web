@@ -1,11 +1,11 @@
-import * as React from "react"
+import React, {useEffect, useState, useRef} from "react"
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import { StaticImage } from "gatsby-plugin-image"
 import {Grid, Button, Typography, TextField} from "@material-ui/core"
-import StorefrontIcon from '@material-ui/icons/Storefront';
-import TvIcon from '@material-ui/icons/Tv';
-import AirportShuttleIcon from '@material-ui/icons/AirportShuttle';
+import StorefrontIconOutlined from '@material-ui/icons/Storefront';
+import TvIconOutlined from '@material-ui/icons/Tv';
+import AirportShuttleIconOutlined from '@material-ui/icons/AirportShuttle';
 import EventNoteIconOutlined from '@material-ui/icons/EventNote';
 import PersonIconOutlined from '@material-ui/icons/Person';
 import VisibilityIconOutlined from '@material-ui/icons/Visibility';
@@ -21,9 +21,24 @@ const pageStyles = {
 
 // markup
 const IndexPage = () => {
+  const [navBackground, setNavBackground] = useState(false)
+  const navRef = useRef()
+  navRef.current = navBackground
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 770
+      if (navRef.current !== show) {
+        setNavBackground(show)
+      }
+    }
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
   return (
     <div>
-      <Navbar />
+      <Navbar scroll={navBackground}/>
       {/* <div
         style={{
           display: 'flex',
@@ -66,6 +81,7 @@ const IndexPage = () => {
             "../images/photo2.jpg"
           }
           formats={["auto", "webp", "avif"]}
+          
         />
         <div
           style={{
@@ -87,7 +103,7 @@ const IndexPage = () => {
               <Typography variant="h5">Book your media now</Typography>
               <Button style={{margin: '0 0.5rem', width: '100%', height: '2.75rem', borderRadius: 5}} variant="contained" color="primary"> Get Started </Button>
             </div>
-            <div style={{width: '100%'}}>
+            {/* <div style={{width: '100%'}}>
             <Grid flex align="center" container>
               <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
               <Grid style={{padding: '1rem', background: 'rgb(76,77,78,0.75)', borderRadius: '1rem', maxWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
@@ -129,7 +145,7 @@ const IndexPage = () => {
                 </Button>
               </Grid>
             </Grid>
-            </div>  
+            </div>   */}
           </div>
         </div>
       </div>
@@ -140,9 +156,76 @@ const IndexPage = () => {
           // This centers the other elements inside the hero component
           placeItems: "center",
           display: "grid",
-          color: 'white', background: 'black'
+          color: 'white', 
+          background: 'rgb(0,0,0,0.97)',
+          padding: '2rem 0'
         }}
       >
+        <Typography variant="h3" color="ineherit">Media Types</Typography>
+        <Grid flex align="center" spacing={5} container style={{maxWidth: '60vw', padding: '3rem', color: 'white', background: 'rgb(0,0,0,0.1)'}}>
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+              <Typography variant="subtitle2">BILLBOARDS</Typography>
+              <Grid style={{padding: '1.75rem 1rem'}}>
+                <TvIconOutlined  style={{transform: 'scale(3.5)'}}/>
+              </Grid>
+              <Grid style={{padding: '1rem 0'}}>
+                <Typography gutterBottom>Static and Digital Billboards</Typography>
+                <Typography variant="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum risus diam, ut lacinia tortor vulputate vitae.</Typography>
+              </Grid>
+              <Grid>
+                <Button fullWidth color="inherit" variant="outlined">Get Started</Button>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+              <Typography variant="subtitle2">SHOPS</Typography>
+              <Grid style={{padding: '1.75rem 1rem'}}>
+                <StorefrontIconOutlined style={{transform: 'scale(3.5)'}}/>
+              </Grid>
+              <Grid style={{padding: '1rem 0', height: '100%'}}>
+                <Typography gutterBottom>Digital Screens in Shops</Typography>
+                <Typography variant="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum risus diam, ut lacinia tortor vulputate vitae.</Typography>
+              </Grid>
+              <Grid>
+                <Button fullWidth color="inherit" variant="outlined">Get Started</Button>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
+              <Typography variant="subtitle2">BUS</Typography>
+              <Grid style={{padding: '1.75rem 1rem'}}>
+                <AirportShuttleIconOutlined style={{transform: 'scale(4)'}}/>
+              </Grid>
+              <Grid style={{padding: '1rem 0'}}>
+                <Typography gutterBottom>Digital Screens in Buses</Typography>
+                <Typography variant="caption" align="left">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum risus diam, ut lacinia tortor vulputate vitae. 
+                </Typography>
+              </Grid>
+              <Grid>
+                <Button fullWidth color="inherit" variant="outlined">Get Started</Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </div>
+      {/* Achievements */}
+      <div
+        style={{
+          // By using the same grid area for both, they are stacked on top of each other
+          gridArea: "1/1",
+          // This centers the other elements inside the hero component
+          placeItems: "center",
+          display: "grid",
+          color: 'white', 
+          background: 'black',
+          padding: '2rem 0'
+        }}
+      >
+        <Typography variant="h3" color="ineherit">Achievements</Typography>
         <Grid flex align="center" container style={{maxWidth: '60vw', padding: '3rem', color: 'white', background: 'black'}}>
           <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
             <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
@@ -179,6 +262,7 @@ const IndexPage = () => {
           </Grid>
         </Grid>
       </div>
+      {/* How it works */}
       <div
         style={{
           // By using the same grid area for both, they are stacked on top of each other
@@ -186,8 +270,10 @@ const IndexPage = () => {
           // This centers the other elements inside the hero component
           placeItems: "center",
           display: "grid",
+          padding: '2rem 0'
         }}
       >
+        <Typography variant="h4" color="ineherit">How It Works?</Typography>
         <Grid flex align="center" container style={{maxWidth: '60vw', padding: '3rem'}}>
           <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
             <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
@@ -244,26 +330,30 @@ const IndexPage = () => {
       >
       {/* Contact form */}
       <Typography variant="h3">Contact Us</Typography>
-      <Grid container spacing={3} style={{padding: '3rem', width: '100%'}}>
-        <Grid item xs={12} md={6} lg={6} style={{ border: '1px solid black'}}>
+      <Grid container spacing={10} style={{padding: '3rem', width: '70%'}}>
+        <Grid item xs={12} md={6} lg={6}>
             <StaticImage  
               alt="photo"
               src="../images/photo.jpg"
               layout="fixed"
-              width={400}
+              width={450}
               height={300}
             />
         </Grid>
-        <Grid item xs={12} md={6} lg={6} style={{border: '1px solid black'}}>
+        <Grid item xs={12} md={6} lg={6}>
           <form>
             <div style={{display: 'flex', flexDirection: 'column'}}>
-            <TextField 
-              label="Name" 
-              type="text"
-              variant="outlined"
-            />
-            <TextField label="email" type="email" variant="outlined"/>
-            <TextField label="message" type="text" multiline rows={7} variant="outlined"/>
+              <TextField 
+                label="Name" 
+                type="text"
+                variant="outlined"
+                size="small"
+              />
+              <TextField label="email" size="small" type="email" variant="outlined" margin="dense"/>
+              <TextField label="message" size="small" type="text" multiline rows={7} variant="outlined" margin="dense"/>
+            </div>
+            <div style={{marginTop: 15, width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
+              <Button type="submit" style={{width: '50%'}} variant="outlined" color="primary"> Submit </Button>
             </div>
           </form>
         </Grid>

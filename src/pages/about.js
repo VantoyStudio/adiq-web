@@ -4,7 +4,7 @@ import Navbar from "../components/navbar"
 const AboutPage = () => {
     return (
         <div>
-            <Navbar />
+            <Navbar scroll={true}/>
             <h1>About Page</h1>
             <div>
                 This is a about page

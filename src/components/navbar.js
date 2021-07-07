@@ -83,16 +83,16 @@ const useStyles = makeStyles((theme) => ({
   link: {
       color: 'black',
       fontSize: '1rem',
-      margin: '10px 1rem',
+      margin: '10px 2rem',
       textDecoration: 'none',
       transitionDuration: '0.5s',
       "&:hover": {
           transform: 'scale(1.2)',
       }
-  }
+  },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -176,8 +176,9 @@ export default function PrimarySearchAppBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="fixed" color="inherit" style={{background: 'white'}}>
-        <Toolbar>
+      <AppBar position="fixed" color={props.scroll ? "inherit" : "transparent"} style={{transition: '0.7s ease'}}>
+        <Toolbar style={{height: '6rem'}}>
+          
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -204,15 +205,19 @@ export default function PrimarySearchAppBar() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            { [{name: 'Home', addr: '/'}, {name: 'About', addr: '/about'}, {name: 'How It Works', addr: '/howitworks'}, {name: 'Become a Partner', addr: '/becomeapartner'}].map(item => {
+            { [ {name: 'Home', addr: '/'}, 
+                {name: 'About', addr: '/about'}, 
+                {name: 'How It Works', addr: '/howitworks'}, 
+                {name: 'Browse Media', addr: '/media'},
+                {name: 'Become a Partner', addr: '/becomeapartner'}].map(item => {
                 return (
-                    <Link to={item.addr} className={classes.link}> 
+                    <Link to={item.addr} className={classes.link} style={props.scroll ? {color: 'black'} : {color: 'white'}}> 
                         <span><Typography variant="button">{item.name}</Typography></span> 
                     </Link>  
                 )
             })}
-            <ButtonGroup color="primary" aria-label="outlined primary button group">
-                <Button variant="outlined">Login</Button>
+            <ButtonGroup color={props.scroll ? "primary" : "inherit"} aria-label="outlined primary button group">
+                <Button variant="outlined" style={props.scroll ? {color: 'black'} : {color: 'white'}}>Login</Button>
                 <Button variant="contained" >Sign Up</Button>
             </ButtonGroup>
           </div>
