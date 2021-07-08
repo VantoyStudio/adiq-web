@@ -4,19 +4,17 @@ import AppBar from '@material-ui/core/AppBar';
 import {Toolbar, Button, ButtonGroup} from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 import {Link} from 'gatsby';
-
+import { StaticImage } from "gatsby-plugin-image"
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -24,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    display: 'none',
+    [theme.breakpoints.down('md')]: {
+      display: 'flex'
+    }
   },
   title: {
     display: 'none',
@@ -69,9 +71,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
+    display: 'flex',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
     },
   },
   sectionMobile: {
@@ -90,6 +92,19 @@ const useStyles = makeStyles((theme) => ({
           transform: 'scale(1.2)',
       }
   },
+  logoTypo: {
+    fontSize: '1rem',
+    marginLeft: '.5rem'
+  },
+  linkHome: {
+    display: 'flex', 
+    alignItems: 'center',
+    textDecoration: 'none',
+    transitionDuration: '0.5s',
+    '&:hover' : {
+      transform: 'scale(1.1)',
+    }
+  }
 }));
 
 export default function PrimarySearchAppBar(props) {
@@ -177,7 +192,7 @@ export default function PrimarySearchAppBar(props) {
   return (
     <div className={classes.grow}>
       <AppBar position="fixed" color={props.scroll ? "inherit" : "transparent"} style={{transition: '0.7s ease'}}>
-        <Toolbar style={{height: '6rem'}}>
+        <Toolbar style={props.scroll ? {height: '6rem', transition: '0.7s'} : {height: "8rem", transition: '0.7s'}}>
           
           <IconButton
             edge="start"
@@ -187,28 +202,21 @@ export default function PrimarySearchAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            AD-IQ
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
+          
+          <div style={{display: 'flex', alignItems: 'center', marginLeft: '1rem'}}>
+            <Link className={classes.linkHome} to="/">
+              <div>
+                <StaticImage src="../images/logo.png" alt="logo" width={59} height={59}/> 
+              </div>
+              <Typography className={classes.logoTypo} style={props.scroll ? {color: 'black'} : {color: 'white'}}> AD-IQ</Typography>
+            </Link>
           </div>
+        
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            { [ {name: 'Home', addr: '/'}, 
+            { [ {name: 'Browse Media', addr: '/media'}, 
                 {name: 'About', addr: '/about'}, 
                 {name: 'How It Works', addr: '/howitworks'}, 
-                {name: 'Browse Media', addr: '/media'},
                 {name: 'Become a Partner', addr: '/becomeapartner'}].map(item => {
                 return (
                     <Link to={item.addr} className={classes.link} style={props.scroll ? {color: 'black'} : {color: 'white'}}> 
@@ -229,7 +237,7 @@ export default function PrimarySearchAppBar(props) {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <MoreIcon color="inherit"/>
             </IconButton>
           </div>
         </Toolbar>
