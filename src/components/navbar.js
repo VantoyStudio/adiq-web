@@ -1,7 +1,7 @@
 import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import {Toolbar, Button, ButtonGroup} from '@material-ui/core';
+import {Toolbar, Button} from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
@@ -15,99 +15,114 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 
 import {Link} from 'gatsby';
 import { StaticImage } from "gatsby-plugin-image"
-const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-    background: 'black',
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    display: 'none',
-    [theme.breakpoints.down('md')]: {
-      display: 'flex'
-    }
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputRoot: {
-    color: 'inherit',
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-  sectionDesktop: {
-    display: 'flex',
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    },
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-  link: {
-      color: 'black',
-      fontSize: '1rem',
-      margin: '10px 2rem',
-      textDecoration: 'none',
-      transitionDuration: '0.5s',
-      "&:hover": {
-          transform: 'scale(1.2)',
-      }
-  },
-  logoTypo: {
-    fontSize: '1rem',
-    marginLeft: '.5rem'
-  },
-  linkHome: {
-    display: 'flex', 
-    alignItems: 'center',
-    textDecoration: 'none',
-    transitionDuration: '0.5s',
-    '&:hover' : {
-      transform: 'scale(1.1)',
-    }
-  }
-}));
+
 
 export default function PrimarySearchAppBar(props) {
+  
+  const useStyles = makeStyles((theme) => ({
+    grow: {
+      flexGrow: 1,
+      background: 'black',
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+      display: 'none',
+      [theme.breakpoints.down('md')]: {
+        display: 'flex'
+      }
+    },
+    title: {
+      display: 'none',
+      [theme.breakpoints.up('sm')]: {
+        display: 'block',
+      },
+    },
+    search: {
+      position: 'relative',
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: fade(theme.palette.common.white, 0.15),
+      '&:hover': {
+        backgroundColor: fade(theme.palette.common.white, 0.25),
+      },
+      marginRight: theme.spacing(2),
+      marginLeft: 0,
+      width: '100%',
+      [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing(3),
+        width: 'auto',
+      },
+    },
+    searchIcon: {
+      padding: theme.spacing(0, 2),
+      height: '100%',
+      position: 'absolute',
+      pointerEvents: 'none',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    inputRoot: {
+      color: 'inherit',
+    },
+    inputInput: {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+      transition: theme.transitions.create('width'),
+      width: '100%',
+      [theme.breakpoints.up('md')]: {
+        width: '20ch',
+      },
+    },
+    sectionDesktop: {
+      display: 'flex',
+      [theme.breakpoints.down('md')]: {
+        display: 'none',
+      },
+    },
+    sectionMobile: {
+      display: 'flex',
+      [theme.breakpoints.up('md')]: {
+        display: 'none',
+      },
+    },
+    link: {
+        color: 'black',
+        fontSize: '1rem',
+        margin: '10px 2rem',
+        textDecoration: 'none',
+        transitionDuration: '0.5s',
+        "&:hover": {
+            transform: 'scale(1.2)',
+        }
+    },
+    logoTypo: {
+      fontSize: '1rem',
+      marginLeft: '.5rem'
+    },
+    linkHome: {
+      display: 'flex', 
+      alignItems: 'center',
+      textDecoration: 'none',
+      transitionDuration: '0.5s',
+      '&:hover' : {
+        transform: 'scale(1.1)',
+      }
+    },
+    authBtn: {
+      height: '2.5rem',
+      background: 'white',
+      color: 'black',
+      border: '2px solid black',
+      borderRadius: '10px',
+      "&:hover" : {
+        background: 'black',
+        color: 'white',
+        border: (props.scroll) ? '3px solid black' : '3px solid white',
+      }
+    }
+  }));
+  
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -214,20 +229,21 @@ export default function PrimarySearchAppBar(props) {
         
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            { [ {name: 'Browse Media', addr: '/media'}, 
+            { [ {name: 'OOH Inventory', addr: '/inventory'}, 
                 {name: 'About', addr: '/about'}, 
                 {name: 'How It Works', addr: '/howitworks'}, 
-                {name: 'Become a Partner', addr: '/becomeapartner'}].map(item => {
+                {name: 'Become a Partner', addr: '/becomeapartner'},
+                {name: 'Log In', addr: '/'}].map(item => {
                 return (
                     <Link to={item.addr} className={classes.link} style={props.scroll ? {color: 'black'} : {color: 'white'}}> 
                         <span><Typography variant="button">{item.name}</Typography></span> 
                     </Link>  
                 )
             })}
-            <ButtonGroup color={props.scroll ? "primary" : "inherit"} aria-label="outlined primary button group">
-                <Button variant="outlined" style={props.scroll ? {color: 'black'} : {color: 'white'}}>Login</Button>
-                <Button variant="contained" >Sign Up</Button>
-            </ButtonGroup>
+            {/* <ButtonGroup color={props.scroll ? "primary" : "inherit"} aria-label="outlined primary button group"> */}
+                {/* <Button variant="outlined" className={classes.authBtn} style={props.scroll ? {color: 'black'} : {color: 'white'}}>Login</Button> */}
+            <Button variant="contained" className={classes.authBtn}><strong>Sign Up</strong></Button>
+            {/* </ButtonGroup> */}
           </div>
           <div className={classes.sectionMobile}>
             <IconButton

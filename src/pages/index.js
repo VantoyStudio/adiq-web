@@ -1,17 +1,19 @@
 import React, {useEffect, useState, useRef} from "react"
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
+import Background from "../components/home/background"
+import MediaTypes from "../components/home/mediatypes"
+
 import { StaticImage } from "gatsby-plugin-image"
 import {Grid, Button, Typography, TextField} from "@material-ui/core"
-import StorefrontIconOutlined from '@material-ui/icons/Storefront';
-import TvIconOutlined from '@material-ui/icons/Tv';
-import AirportShuttleIconOutlined from '@material-ui/icons/AirportShuttle';
+
 import EventNoteIconOutlined from '@material-ui/icons/EventNote';
 import PersonIconOutlined from '@material-ui/icons/Person';
 import VisibilityIconOutlined from '@material-ui/icons/Visibility';
 import SearchIcon from '@material-ui/icons/Search';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+
 // styles
 // const pageStyles = {
 //   color: "#232129",
@@ -26,7 +28,7 @@ const IndexPage = () => {
   navRef.current = navBackground
   useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 770
+      const show = window.scrollY > 790
       if (navRef.current !== show) {
         setNavBackground(show)
       }
@@ -38,181 +40,12 @@ const IndexPage = () => {
   }, [])
   return (
     <div>
+      {/* <main>
+        <title>AD-IQ</title>
+      </main> */}
       <Navbar scroll={navBackground}/>
-      {/* <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          background: 'black',
-          width: '98.25vw',
-          height: '90vh'
-        }}
-      >
-        <StaticImage
-          src=""
-          alt="billboards"
-          placeholder="blurred"
-          layout="fixed"
-          width={1280}
-          height={720}
-          
-        />
-      </div> */}
-
-      <div style={{ display: "grid", background: 'black' }}>
-      {/* You can use a GatsbyImage component if the image is dynamic */}
-        {/* Implement Slideshow/Carousel */}
-        <StaticImage
-          style={{
-            gridArea: "1/1",
-            // You can set a maximum height for the image, if you wish.
-            // maxHeight: 600,
-            background: "center no-repeat",
-            backgroundSize: "cover",
-            zIndex: 1,
-            backgroundColor: 'black',
-          }}
-          layout="fullWidth"
-          // You can optionally force an aspect ratio for the generated image
-          aspectRatio={2 / 1}
-          // This is a presentational image, so the alt should be an empty string
-          alt="photo"
-          // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
-          src={
-            "../images/photo2.jpg"
-          }
-          formats={["auto", "webp", "avif"]}
-          
-        />
-        <div
-          style={{
-            // By using the same grid area for both, they are stacked on top of each other
-            gridArea: "1/1",
-            position: "relative",
-            zIndex: 2,
-            // This centers the other elements inside the hero component
-            placeItems: "center",
-            display: "grid",
-            background: "rgba(0, 0, 0, 0.75)"
-          }}
-        >
-          {/* Any content here will be centered in the component */}
-          <div style={{position: "relative", zIndex: 3, color: "white", minWidth: '50vw', minHeight: "70vh", display: "grid", placeItems: "center"}}>
-            <div style={{ minHeight: "30vh", display: "grid", placeItems: "center"}}>
-              <Typography variant="h3">Connect to a Screen</Typography>
-              <Typography variant="h2">One Click</Typography>
-              <Typography variant="h5">Book your media now</Typography>
-              <Button style={{margin: '0 0.5rem', width: '100%', height: '2.75rem', borderRadius: 5}} variant="contained" color="primary"> Get Started </Button>
-            </div>
-            {/* <div style={{width: '100%'}}>
-            <Grid flex align="center" container>
-              <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-              <Grid style={{padding: '1rem', background: 'rgb(76,77,78,0.75)', borderRadius: '1rem', maxWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
-                  <Grid>
-                    BILLBOARDS
-                  </Grid>
-                  <Grid style={{padding: '1.5rem 1rem'}}>
-                    <TvIcon style={{transform: 'scale(3)'}}/>
-                  </Grid>
-                </Grid>
-                <Button style={{background: 'rgb(223,225,226,0.8)', width: '43%', marginTop: '0.5rem'}}>
-                  Book Now
-                </Button>
-              </Grid>
-              <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                <Grid style={{padding: '1rem', background: 'rgb(76,77,78,0.75)', borderRadius: '1rem', maxWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
-                  <Grid>
-                    SHOPS
-                  </Grid>
-                  <Grid style={{padding: '1.5rem 1rem'}}>
-                    <StorefrontIcon style={{transform: 'scale(3)'}}/>
-                  </Grid>
-                </Grid>
-                <Button style={{background: 'rgb(223,225,226,0.8)', width: '43%', marginTop: '0.5rem'}}>
-                  Book Now
-                </Button>
-              </Grid>
-              <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                <Grid style={{padding: '1rem', background: 'rgb(76,77,78,0.75)', borderRadius: '1rem', maxWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
-                  <Grid>
-                    <Typography>BUS</Typography>
-                  </Grid>
-                  <Grid style={{padding: '1.5rem 1rem'}}>
-                    <AirportShuttleIcon style={{transform: 'scale(3)'}}/>
-                  </Grid>
-                </Grid>
-                <Button style={{background: 'rgb(223,225,226,0.8)', width: '43%', marginTop: '0.5rem'}}>
-                  Book Now
-                </Button>
-              </Grid>
-            </Grid>
-            </div>   */}
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          // By using the same grid area for both, they are stacked on top of each other
-          gridArea: "1/1",
-          // This centers the other elements inside the hero component
-          placeItems: "center",
-          display: "grid",
-          color: 'white', 
-          background: 'rgb(0,0,0,0.97)',
-          padding: '2rem 0'
-        }}
-      >
-        <Typography variant="h3" color="ineherit">Media Types</Typography>
-        <Grid flex align="center" spacing={5} container style={{maxWidth: '60vw', padding: '3rem', color: 'white', background: 'rgb(0,0,0,0.1)'}}>
-          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
-              <Typography variant="subtitle2">BILLBOARDS</Typography>
-              <Grid style={{padding: '1.75rem 1rem'}}>
-                <TvIconOutlined  style={{transform: 'scale(3.5)'}}/>
-              </Grid>
-              <Grid style={{padding: '1rem 0'}}>
-                <Typography gutterBottom>Static and Digital Billboards</Typography>
-                <Typography variant="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum risus diam, ut lacinia tortor vulputate vitae.</Typography>
-              </Grid>
-              <Grid>
-                <Button fullWidth color="inherit" variant="outlined">Get Started</Button>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
-              <Typography variant="subtitle2">SHOPS</Typography>
-              <Grid style={{padding: '1.75rem 1rem'}}>
-                <StorefrontIconOutlined style={{transform: 'scale(3.5)'}}/>
-              </Grid>
-              <Grid style={{padding: '1rem 0', height: '100%'}}>
-                <Typography gutterBottom>Digital Screens in Shops</Typography>
-                <Typography variant="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum risus diam, ut lacinia tortor vulputate vitae.</Typography>
-              </Grid>
-              <Grid>
-                <Button fullWidth color="inherit" variant="outlined">Get Started</Button>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
-              <Typography variant="subtitle2">BUS</Typography>
-              <Grid style={{padding: '1.75rem 1rem'}}>
-                <AirportShuttleIconOutlined style={{transform: 'scale(4)'}}/>
-              </Grid>
-              <Grid style={{padding: '1rem 0'}}>
-                <Typography gutterBottom>Digital Screens in Buses</Typography>
-                <Typography variant="caption" align="left">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum risus diam, ut lacinia tortor vulputate vitae. 
-                </Typography>
-              </Grid>
-              <Grid>
-                <Button fullWidth color="inherit" variant="outlined">Get Started</Button>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-      </div>
+      <Background />
+      <MediaTypes />
       {/* Achievements */}
       <div
         style={{
