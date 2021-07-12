@@ -1,6 +1,8 @@
 import React from 'react'
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
+import MediaTypes from "../components/inventory/mediatypes"
+import FilteredMedia from "../components/inventory/filtered"
 
 import {Paper, Grid, Tabs, Tab} from "@material-ui/core"
 
@@ -33,7 +35,7 @@ const Inventory = () => {
                         }}
                     >
                         <div style={{width: '70%', placeItems: 'center'}}>
-                            <Paper> 
+                            <Paper style={{height: '100%'}}> 
                                 <Grid style={{display: 'flex', justifyContent: 'center'}}>
                                     <Tabs
                                         value={value}
@@ -48,31 +50,9 @@ const Inventory = () => {
                                 </Grid>
                                 <Grid>
                                     {value === 0 ? (
-                                        <div
-                                            style={{
-                                            // By using the same grid area for both, they are stacked on top of each other
-                                                gridArea: "1/1",
-                                                // This centers the other elements inside the hero component
-                                                placeItems: "center",
-                                                display: "grid",
-                                                padding: '1rem'
-                                            }}
-                                        >
-                                            Different Types of Media
-                                        </div>
+                                        <MediaTypes />
                                     ) : (
-                                        <div
-                                            style={{
-                                            // By using the same grid area for both, they are stacked on top of each other
-                                                gridArea: "1/1",
-                                                // This centers the other elements inside the hero component
-                                                placeItems: "center",
-                                                display: "grid",
-                                                padding: '1rem'
-                                            }}
-                                        >
-                                            Find your media
-                                        </div>
+                                        <FilteredMedia />
                                     )}
                                 </Grid>
                             </Paper>
