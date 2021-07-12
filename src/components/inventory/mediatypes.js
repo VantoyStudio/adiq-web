@@ -9,7 +9,7 @@ const useStyles = makeStyles({
         justifyContent: 'space-evenly',
         width: '100%',
         minWidth: '60rem',
-        padding: '1rem 0'
+        padding: '0.5rem 0'
     },
     cardRoot: {
       maxWidth: 300,
@@ -33,7 +33,7 @@ const MediaTypes = (props) => {
             }}
         >
             <h3>Browser througth different Media Types</h3>
-            <div style={{display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', width: '70%', padding: '1rem 0'}}>
+            <div style={{display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', width: '70%', padding: '5rem 0'}}>
                 {  [{name: 'Billboards', addr: '#billboards'}, 
                     {name: 'Shops', addr: '#shops'}, 
                     {name: 'Buses', addr: '#buses'}, 
@@ -45,9 +45,9 @@ const MediaTypes = (props) => {
                 )
             })}
             </div>
-            <hr id="billboards" style={{width: '80%'}}/>
-            <div style={{height: '100%', display: 'grid', placeItems: 'center', padding: '3rem 0'}}>
-                <h3 style={{textAlign: 'center'}}>Billboards</h3>
+            <hr style={{width: '80%'}}/>
+            <div id="billboards" style={{height: '100%', display: 'grid', placeItems: 'center', padding: '5rem 0'}}>
+                <h3 style={{textAlign: 'center', marginBottom: '-5rem'}}>Billboards</h3>
                 <div>
                     <Grid className={classes.root}>
                         <Card className={classes.cardRoot}>
@@ -106,8 +106,8 @@ const MediaTypes = (props) => {
                 </div>
             </div>
             <hr id="shops" style={{width: '80%'}}/>
-            <div style={{height: '100%', padding: '3rem 0'}}>
-                <h3 style={{textAlign: 'center'}}>Shops</h3>
+            <div style={{height: '100%', display: 'grid', placeItems: 'center', padding: '7rem 0'}}>
+                <h3 style={{textAlign: 'center', marginBottom: '-8rem'}}>Shops</h3>
                 <div>
                     <Grid className={classes.root}>
                         <Card className={classes.cardRoot}>
@@ -141,8 +141,8 @@ const MediaTypes = (props) => {
                 </div>
             </div>
             <hr  id="buses" style={{width: '80%'}}/>
-            <div style={{height: '100%', padding: '3rem 0'}}>
-                <h3 style={{textAlign: 'center'}}>Buses</h3>
+            <div style={{height: '100%', display: 'grid', placeItems: 'center', padding: '7rem 0'}}>
+                <h3 style={{textAlign: 'center', marginBottom: '-6rem'}}>Buses</h3>
                 <div>
                     <Grid className={classes.root}>
                         <Card className={classes.cardRoot}>
