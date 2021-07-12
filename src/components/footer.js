@@ -8,7 +8,8 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 const Footer = () => {
     return (
         <div style={{height: '45vh', placeItems: "center", display: "grid", gridArea: "1/1", border: '1px 0 0 0 grey'}}>
-            <div style={{display: "flex", minWidth: '50vw', width: '62%', alignItems: 'center', justifyContent: "space-between"}}>
+            <hr style={{width: '90%'}}/>
+            <div style={{display: "flex", minWidth: '50vw', width: '80%', alignItems: 'center', justifyContent: "space-between"}}>
                 <div>
                     <StaticImage src="../images/logo2.png" alt="logo2" height={71} width={75} placeholder="blurred"
       layout="fixed"/>

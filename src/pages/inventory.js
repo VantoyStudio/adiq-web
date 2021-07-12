@@ -1,7 +1,16 @@
 import React from 'react'
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
-const AllMedia = () => {
+
+import {Paper, Grid, Tabs, Tab} from "@material-ui/core"
+
+const Inventory = () => {
+    const [value, setValue] = React.useState(0);
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
+
     return (
         <div>
             <Navbar scroll={true}/>
@@ -11,8 +20,65 @@ const AllMedia = () => {
                 <h5 style={{textAlign: 'center'}}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum risus diam, ut lacinia tortor vulputate vitae
                 </h5>
+                <hr style={{width: '70%'}}/>
                 <div>
-                    Some thing to write here
+                    <div
+                        style={{
+                        // By using the same grid area for both, they are stacked on top of each other
+                            gridArea: "1/1",
+                            // This centers the other elements inside the hero component
+                            placeItems: "center",
+                            display: "grid",
+                            padding: '1rem 0'
+                        }}
+                    >
+                        <div style={{width: '70%', placeItems: 'center'}}>
+                            <Paper> 
+                                <Grid style={{display: 'flex', justifyContent: 'center'}}>
+                                    <Tabs
+                                        value={value}
+                                        indicatorColor="primary"
+                                        textColor="primary"
+                                        onChange={handleChange}
+                                        aria-label="inventory tabs"
+                                    >
+                                        <Tab label="MEDIA TYPES" />
+                                        <Tab label="FILTER" />
+                                    </Tabs>
+                                </Grid>
+                                <Grid>
+                                    {value === 0 ? (
+                                        <div
+                                            style={{
+                                            // By using the same grid area for both, they are stacked on top of each other
+                                                gridArea: "1/1",
+                                                // This centers the other elements inside the hero component
+                                                placeItems: "center",
+                                                display: "grid",
+                                                padding: '1rem'
+                                            }}
+                                        >
+                                            Different Types of Media
+                                        </div>
+                                    ) : (
+                                        <div
+                                            style={{
+                                            // By using the same grid area for both, they are stacked on top of each other
+                                                gridArea: "1/1",
+                                                // This centers the other elements inside the hero component
+                                                placeItems: "center",
+                                                display: "grid",
+                                                padding: '1rem'
+                                            }}
+                                        >
+                                            Find your media
+                                        </div>
+                                    )}
+                                </Grid>
+                            </Paper>
+                        </div>
+                        
+                    </div>
                 </div>
             </main>
             <Footer/>
@@ -20,4 +86,4 @@ const AllMedia = () => {
     )
 }
 
-export default AllMedia;
+export default Inventory;
