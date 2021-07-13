@@ -69,7 +69,7 @@ const MediaTypes = (props) => {
                             </CardActionArea>
                             <CardActions>
                                 <Button size="small" color="primary">
-                                Share
+                                Get Started
                                 </Button>
                                 <Button size="small" color="primary">
                                 Learn More
@@ -95,7 +95,7 @@ const MediaTypes = (props) => {
                             </CardActionArea>
                             <CardActions>
                                 <Button size="small" color="primary">
-                                Share
+                                Get Started
                                 </Button>
                                 <Button size="small" color="primary">
                                 Learn More
@@ -129,7 +129,7 @@ const MediaTypes = (props) => {
                             </CardActionArea>
                             <CardActions>
                                 <Button size="small" color="primary">
-                                Share
+                                Get Started
                                 </Button>
                                 <Button size="small" color="primary">
                                 Learn More
@@ -164,7 +164,7 @@ const MediaTypes = (props) => {
                             </CardActionArea>
                             <CardActions>
                                 <Button size="small" color="primary">
-                                Share
+                                Get Started
                                 </Button>
                                 <Button size="small" color="primary">
                                 Learn More
@@ -190,7 +190,7 @@ const MediaTypes = (props) => {
                             </CardActionArea>
                             <CardActions>
                                 <Button size="small" color="primary">
-                                Share
+                                Get Started
                                 </Button>
                                 <Button size="small" color="primary">
                                 Learn More

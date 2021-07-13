@@ -79,7 +79,7 @@ export default function PrimarySearchAppBar(props) {
       border: '2px solid black',
       borderRadius: '10px',
       "&:hover" : {
-        background: 'black',
+        background: (props.scroll) ? 'black' : 'rgb(0,0,0,0.1)',
         color: 'white',
         border: (props.scroll) ? '3px solid black' : '3px solid white',
       }

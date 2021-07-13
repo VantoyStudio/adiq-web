@@ -3,6 +3,7 @@ import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import Background from "../components/home/background"
 import MediaTypes from "../components/home/mediatypes"
+import Features from "../components/home/features"
 
 import { StaticImage } from "gatsby-plugin-image"
 import {Grid, Button, Typography, TextField} from "@material-ui/core"
@@ -28,7 +29,7 @@ const IndexPage = () => {
   navRef.current = navBackground
   useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 790
+      const show = window.scrollY > 1240
       if (navRef.current !== show) {
         setNavBackground(show)
       }
@@ -46,6 +47,7 @@ const IndexPage = () => {
       <Navbar scroll={navBackground}/>
       <Background />
       <MediaTypes />
+      <Features />
       {/* Achievements */}
       <div
         style={{
