@@ -3,7 +3,7 @@ import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import Background from "../components/home/background"
 import MediaTypes from "../components/home/mediatypes"
-import Features from "../components/home/features"
+// import Features from "../components/home/features"
 
 import { StaticImage } from "gatsby-plugin-image"
 import {Grid, Button, Typography, TextField} from "@material-ui/core"
@@ -47,7 +47,7 @@ const IndexPage = () => {
       <Navbar scroll={navBackground}/>
       <Background />
       <MediaTypes />
-      <Features />
+      {/* <Features /> */}
       {/* Achievements */}
       <div
         style={{

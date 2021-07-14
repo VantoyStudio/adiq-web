@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         backgroundColor: "rgba(0, 0, 1, 0.1)",
         transitionDuration: '1s',
-        boxShadow: '1px 1px rgba(0,0,0,0.5)'
+        border: '1px '
     }
     
 }));

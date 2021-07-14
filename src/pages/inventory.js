@@ -45,7 +45,7 @@ const Inventory = () => {
                                         aria-label="inventory tabs"
                                     >
                                         <Tab label="MEDIA TYPES" />
-                                        <Tab label="FILTER" />
+                                        <Tab label="MEDIA PLAN" />
                                     </Tabs>
                                 </Grid>
                                 <Grid>

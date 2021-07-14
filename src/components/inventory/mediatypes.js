@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, Grid, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography, makeStyles} from '@material-ui/core'
 import photo from '../../images/photo.jpg'
+import {navigate} from 'gatsby';
 
 const useStyles = makeStyles({
     root: {
@@ -68,11 +69,8 @@ const MediaTypes = (props) => {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary">
-                                Get Started
-                                </Button>
-                                <Button size="small" color="primary">
-                                Learn More
+                                <Button size="small" color="primary" onClick={()=>navigate('digital-billboards')}>
+                                    Browse
                                 </Button>
                             </CardActions>
                         </Card>
@@ -94,11 +92,8 @@ const MediaTypes = (props) => {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary">
-                                Get Started
-                                </Button>
-                                <Button size="small" color="primary">
-                                Learn More
+                                <Button size="small" color="primary" onClick={()=>navigate('static-billboards')}>
+                                    Browse
                                 </Button>
                             </CardActions>
                         </Card>
@@ -128,11 +123,9 @@ const MediaTypes = (props) => {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary">
-                                Get Started
-                                </Button>
-                                <Button size="small" color="primary">
-                                Learn More
+                                
+                                <Button size="small" color="primary" onClick={()=>navigate('shops')}>
+                                Browse
                                 </Button>
                             </CardActions>
                         </Card>
