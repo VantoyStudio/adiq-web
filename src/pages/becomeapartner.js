@@ -2,14 +2,21 @@ import React from "react";
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import Article from "../components/article"
-import {makeStyles} from '@material-ui/core';
+import {makeStyles, Paper} from '@material-ui/core';
 import photo from "../images/photo.jpg"
 import photo2 from "../images/photo2.jpg"
+import StepperForm from "../components/stepper-form";
 
 const useStyles = makeStyles((theme) => ({
     heading: {
         textAlign: 'center',
         fontSize: '2.5rem'
+    },
+    paper: {
+        minHeight: '30rem',
+        minWidth: '25rem',
+        width: '70rem',
+        padding: '2rem'
     }
     
 }));
@@ -59,8 +66,15 @@ const BecomeAPartner = () => {
                 <hr style={{width: '70%'}}/>
                 <Article data={articles.media} reverse={true}/>
                 <hr style={{width: '70%'}}/>
-                <div>
-                    Multi step form
+                <h2 style={{textAlign: 'center'}}>Become our Out Of Home partner</h2>
+                <h3 style={{textAlign: 'center'}}>Register yourself with this form</h3>
+                <p style={{textAlign: 'center'}}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum risus diam, ut lacinia tortor vulputate vitae
+                </p>
+                <div style={{display: 'grid', placeItems: 'center'}}>
+                    <Paper elevation={3} className={classes.paper}>
+                        <StepperForm />
+                    </Paper>
                 </div>
             </main>
             <Footer />

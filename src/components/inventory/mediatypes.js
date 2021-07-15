@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Grid, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography, makeStyles} from '@material-ui/core'
+import {Button, Grid, Card, CardActionArea, CardContent, CardMedia, Typography, makeStyles} from '@material-ui/core'
 import photo from '../../images/photo.jpg'
 import {navigate} from 'gatsby';
 
@@ -52,7 +52,7 @@ const MediaTypes = (props) => {
                 <div>
                     <Grid className={classes.root}>
                         <Card className={classes.cardRoot}>
-                            <CardActionArea>
+                            <CardActionArea onClick={()=>navigate('billboards#digital')}>
                                 <CardMedia
                                 className={classes.media}
                                 image={photo}
@@ -68,14 +68,14 @@ const MediaTypes = (props) => {
                                 </Typography>
                                 </CardContent>
                             </CardActionArea>
-                            <CardActions>
+                            {/* <CardActions>
                                 <Button size="small" color="primary" onClick={()=>navigate('billboards#digital')}>
                                     Browse
                                 </Button>
-                            </CardActions>
+                            </CardActions> */}
                         </Card>
                         <Card className={classes.cardRoot}>
-                            <CardActionArea>
+                            <CardActionArea onClick={()=>navigate('billboards#static')}>
                                 <CardMedia
                                 className={classes.media}
                                 image={photo}
@@ -91,11 +91,11 @@ const MediaTypes = (props) => {
                                 </Typography>
                                 </CardContent>
                             </CardActionArea>
-                            <CardActions>
-                                <Button size="small" color="primary" onClick={()=>navigate('billboards#static')}>
+                            {/* <CardActions>
+                                <Button size="small" color="primary">
                                     Browse
                                 </Button>
-                            </CardActions>
+                            </CardActions> */}
                         </Card>
                     </Grid>
                 </div>
@@ -106,7 +106,7 @@ const MediaTypes = (props) => {
                 <div>
                     <Grid className={classes.root}>
                         <Card className={classes.cardRoot}>
-                            <CardActionArea>
+                            <CardActionArea onClick={()=>navigate('shops')}>
                                 <CardMedia
                                 className={classes.media}
                                 image={photo}
@@ -122,12 +122,12 @@ const MediaTypes = (props) => {
                                 </Typography>
                                 </CardContent>
                             </CardActionArea>
-                            <CardActions>
+                            {/* <CardActions>
                                 
-                                <Button size="small" color="primary" onClick={()=>navigate('shops')}>
+                                <Button size="small" color="primary" >
                                 Browse
                                 </Button>
-                            </CardActions>
+                            </CardActions> */}
                         </Card>
                         
                     </Grid>
@@ -155,14 +155,14 @@ const MediaTypes = (props) => {
                                 </Typography>
                                 </CardContent>
                             </CardActionArea>
-                            <CardActions>
+                            {/* <CardActions>
                                 <Button size="small" color="primary">
                                 Get Started
                                 </Button>
                                 <Button size="small" color="primary">
                                 Learn More
                                 </Button>
-                            </CardActions>
+                            </CardActions> */}
                         </Card>
                         <Card className={classes.cardRoot}>
                             <CardActionArea>
@@ -181,14 +181,14 @@ const MediaTypes = (props) => {
                                 </Typography>
                                 </CardContent>
                             </CardActionArea>
-                            <CardActions>
+                            {/* <CardActions>
                                 <Button size="small" color="primary">
                                 Get Started
                                 </Button>
                                 <Button size="small" color="primary">
                                 Learn More
                                 </Button>
-                            </CardActions>
+                            </CardActions> */}
                         </Card>
                     </Grid>
                 </div>

@@ -13,7 +13,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
-import {Link} from 'gatsby';
+import {Link, navigate} from 'gatsby';
 import { StaticImage } from "gatsby-plugin-image"
 
 
@@ -205,7 +205,7 @@ export default function PrimarySearchAppBar(props) {
             })}
             {/* <ButtonGroup color={props.scroll ? "primary" : "inherit"} aria-label="outlined primary button group"> */}
                 {/* <Button variant="outlined" className={classes.authBtn} style={props.scroll ? {color: 'black'} : {color: 'white'}}>Login</Button> */}
-            <Button variant="contained" className={classes.authBtn}><strong>Sign Up</strong></Button>
+            <Button variant="contained" onClick={() => navigate('/register')} className={classes.authBtn}><strong>Sign Up</strong></Button>
             {/* </ButtonGroup> */}
           </div>
           <div className={classes.sectionMobile}>

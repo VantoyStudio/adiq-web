@@ -1,8 +1,14 @@
 import React from "react";
 import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
-import {makeStyles, Avatar, Grid, Card, CardHeader, Chip, CardActionArea, CardActions, CardContent, CardMedia, Typography, Button} from '@material-ui/core';
+import {makeStyles, Avatar, Grid, Card, CardHeader, Chip, CardActionArea, CardContent, CardMedia, Typography, Button} from '@material-ui/core';
 import photo from '../../images/photo.jpg'
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
 
 const useStyles = makeStyles((theme) => ({
     heading: {
@@ -16,8 +22,7 @@ const useStyles = makeStyles((theme) => ({
         height: 170,
     },
     container: {
-        flexGrow: 1,
-        
+        flexGrow: 1,   
     }
     
 }));
@@ -191,9 +196,16 @@ const data = {
 
 const Billboards = () => {
     const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
     const handleDetails = (id) => {
         console.log(id);
+        setOpen(true);
     }
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <div>
             <Navbar scroll={true}/>
@@ -230,6 +242,7 @@ const Billboards = () => {
                                                     subheader={item.location}
                                                 />
                                                 <CardMedia
+                                                    onClick={() => handleDetails(item.id)}
                                                     className={classes.media}
                                                     image={photo}
                                                     title="Contemplative Reptile"
@@ -249,12 +262,36 @@ const Billboards = () => {
                                                 </Typography>
                                                 </CardContent>
                                             </CardActionArea>
-                                            <CardActions>
-                                                <Button size="small" color="primary" onClick={() => handleDetails(item.id)}>
+                                            {/* <CardActions>
+                                                <Button size="small" color="primary" >
                                                     See Details
                                                 </Button>
-                                            </CardActions>
+                                            </CardActions> */}
                                         </Card>
+                                        <Dialog
+                                            open={open}
+                                            onClose={handleClose}
+                                            aria-labelledby="alert-dialog-title"
+                                            aria-describedby="alert-dialog-description"
+                                            maxWidth="md"
+                                            fullWidth
+                                        >
+                                            <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+                                            <DialogContent>
+                                            <DialogContentText id="alert-dialog-description">
+                                                Let Google help apps determine location. This means sending anonymous location data to
+                                                Google, even when no apps are running.
+                                            </DialogContentText>
+                                            </DialogContent>
+                                            <DialogActions>
+                                            <Button onClick={handleClose} color="primary">
+                                                Disagree
+                                            </Button>
+                                            <Button onClick={handleClose} color="primary">
+                                                Agree
+                                            </Button>
+                                            </DialogActions>
+                                        </Dialog>
                                     </Grid>
                                 )
                             })}
@@ -288,6 +325,7 @@ const Billboards = () => {
                                                     subheader={item.location}
                                                 />
                                                 <CardMedia
+                                                    onClick={() => handleDetails(item.id)}
                                                     className={classes.media}
                                                     image={photo}
                                                     title="Contemplative Reptile"
@@ -307,11 +345,35 @@ const Billboards = () => {
                                                 </Typography>
                                                 </CardContent>
                                             </CardActionArea>
-                                            <CardActions>
-                                                <Button size="small" color="primary" onClick={() => handleDetails(item.id)}>
+                                            {/* <CardActions>
+                                                <Button size="small" color="primary" >
                                                     See Details
                                                 </Button>
-                                            </CardActions>
+                                            </CardActions> */}
+                                            <Dialog
+                                                open={open}
+                                                onClose={handleClose}
+                                                aria-labelledby="alert-dialog-title"
+                                                aria-describedby="alert-dialog-description"
+                                                maxWidth="md"
+                                                fullWidth
+                                            >
+                                                <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+                                                <DialogContent>
+                                                <DialogContentText id="alert-dialog-description">
+                                                    Let Google help apps determine location. This means sending anonymous location data to
+                                                    Google, even when no apps are running.
+                                                </DialogContentText>
+                                                </DialogContent>
+                                                <DialogActions>
+                                                <Button onClick={handleClose} color="primary">
+                                                    Disagree
+                                                </Button>
+                                                <Button onClick={handleClose} color="primary">
+                                                    Agree
+                                                </Button>
+                                                </DialogActions>
+                                            </Dialog>
                                         </Card>
                                     </Grid>
                                 )

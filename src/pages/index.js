@@ -29,7 +29,7 @@ const IndexPage = () => {
   navRef.current = navBackground
   useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 1240
+      const show = window.scrollY > 1300
       if (navRef.current !== show) {
         setNavBackground(show)
       }

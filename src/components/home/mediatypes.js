@@ -3,6 +3,7 @@ import {Grid, Button, Typography} from "@material-ui/core"
 import StorefrontIconOutlined from '@material-ui/icons/Storefront';
 import TvIconOutlined from '@material-ui/icons/Tv';
 import AirportShuttleIconOutlined from '@material-ui/icons/AirportShuttle';
+import {navigate} from 'gatsby';
 
 const MediaTypes = (props) => {
     return (
@@ -32,7 +33,7 @@ const MediaTypes = (props) => {
                         <Typography variant="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum risus diam, ut lacinia tortor vulputate vitae.</Typography>
                     </Grid>
                     <Grid>
-                        <Button fullWidth color="inherit" variant="outlined">Get Started</Button>
+                        <Button fullWidth color="inherit" variant="outlined" onClick={()=>navigate("/inventory/billboards")}>Get Started</Button>
                     </Grid>
                     </Grid>
                 </Grid>
@@ -47,7 +48,7 @@ const MediaTypes = (props) => {
                         <Typography variant="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum risus diam, ut lacinia tortor vulputate vitae.</Typography>
                     </Grid>
                     <Grid>
-                        <Button fullWidth color="inherit" variant="outlined">Get Started</Button>
+                        <Button fullWidth color="inherit" variant="outlined" onClick={()=>navigate("/inventory/shops")}>Get Started</Button>
                     </Grid>
                     </Grid>
                 </Grid>

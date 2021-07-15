@@ -116,7 +116,7 @@ const FilteredMedia = (props) => {
             }}
         >
             <h3>Filter your Media Type</h3>
-            <div style={{display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', width: '70%', padding: '2rem 0'}}>
+            <div style={{display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', width: '75%', padding: '2rem 0'}}>
                 <form style={{width: '100%'}}>
                     <div style={{display: 'flex', width: '100%'}}>
                         <div style={{display: 'grid', placeItems: 'left', width: '100%'}}>
@@ -137,7 +137,7 @@ const FilteredMedia = (props) => {
                             </div>
                         </div>
                         <div style={{display: 'grid', placeItems: 'right', width: '100%'}}>
-                            <h3 style={{textAlign: 'left'}}>Price Range</h3>
+                            <h3 style={{textAlign: 'left'}}>Budget</h3>
                             <div>
                                 <PrettoSlider 
                                     valueLabelDisplay="off" 
