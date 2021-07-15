@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import { StaticImage } from "gatsby-plugin-image"
 import {MobileStepper, IconButton, Typography, makeStyles} from "@material-ui/core"
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
@@ -123,11 +123,24 @@ const Background = (props) => {
         setActiveStep((activeStep + 3 - 1)%3);
     };
 
+    const autoNext = useCallback(() => {
+        // do something!
+        setActiveStep((activeStep + 3 + 1)%3);
+    },[activeStep]);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
+          autoNext();
+        }, 2500)
+      
+        return () => clearInterval(intervalId); //This is important
+       
+      }, [autoNext])
     const classes = useStyles();
     // console.log(activeStep)
     return (
         <div>
-            <div style={{ display: "grid", background: 'black'}}>
+            <div style={{ display: "grid", background: 'black', transitionDelay: '1s', transitionDuration: '1s ease'}}>
                 {/* You can use a GatsbyImage component if the image is dynamic */}
                 {/* Implement Slideshow/Carousel */}
                 {activeStep === 1 ? secondaryBg : (activeStep === 2 ? tertiaryBg : primaryBg)}
@@ -157,7 +170,7 @@ const Background = (props) => {
                                <Typography variant="button">Check Inventory</Typography>
                             </Link> 
                         </div>
-                        <div style={{width: '40%', marginTop: '-4rem', background: "rgba(0, 0, 0, 0.1)", display: 'grid', placeItems: 'center stretch'}}>
+                        <div style={{transitionDuration: '1s ease', width: '40%', marginTop: '-4rem', background: "rgba(0, 0, 0, 0.1)", display: 'grid', placeItems: 'center stretch'}}>
                             <MobileStepper
                                 variant="dots"
                                 steps={3}

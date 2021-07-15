@@ -69,7 +69,7 @@ const MediaTypes = (props) => {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary" onClick={()=>navigate('digital-billboards')}>
+                                <Button size="small" color="primary" onClick={()=>navigate('billboards#digital')}>
                                     Browse
                                 </Button>
                             </CardActions>
@@ -92,7 +92,7 @@ const MediaTypes = (props) => {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary" onClick={()=>navigate('static-billboards')}>
+                                <Button size="small" color="primary" onClick={()=>navigate('billboards#static')}>
                                     Browse
                                 </Button>
                             </CardActions>
