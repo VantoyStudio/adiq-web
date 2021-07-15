@@ -196,7 +196,7 @@ export default function PrimarySearchAppBar(props) {
                 {name: 'About', addr: '/about'}, 
                 {name: 'How It Works', addr: '/howitworks'}, 
                 {name: 'Become a Partner', addr: '/becomeapartner'},
-                {name: 'Log In', addr: '/'}].map(item => {
+                {name: 'Log In', addr: '/login'}].map(item => {
                 return (
                     <Link to={item.addr} className={classes.link} style={props.scroll ? {color: 'black'} : {color: 'white'}}> 
                         <span><Typography variant="button">{item.name}</Typography></span> 

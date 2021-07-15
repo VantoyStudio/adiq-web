@@ -37,22 +37,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Login = () => {
+const Register = () => {
     const classes = useStyles();
     return (
         <div>
             <Navbar scroll={true}/>
             <main style={{paddingTop: '6rem', width: '100%'}}>
-                <h1 className={classes.heading}>Log in your account</h1>
+                <h1 className={classes.heading}>Register an account</h1>
                 <div className={classes.formRoot}>
                     <form>
                         
                         <Paper className={classes.formPaper}>
-                            <Typography align="center">Log In</Typography>
-                            <div style={{width: '100%', height: '20rem', display: 'grid', placeItems: 'center'}}>
+                            <Typography align="center">Sign up</Typography>
+                            <div style={{width: '100%', height: '23rem', display: 'grid', placeItems: 'center'}}>
                                 <TextField 
                                     label="Email"
                                     type="email"
+                                    className={classes.textField}
+                                />
+                                <TextField 
+                                    label="Company Name"
+                                    type="text"
                                     className={classes.textField}
                                 />
                                 <TextField 
@@ -60,10 +65,15 @@ const Login = () => {
                                     type="password"
                                     className={classes.textField}
                                 />
+                                <TextField 
+                                    label="Confirm Password"
+                                    type="password"
+                                    className={classes.textField}
+                                />
                                 <Button variant="outlined" className={classes.submitBtn}>
-                                    Login
+                                    Register
                                 </Button>
-                                <Typography variant="caption" align="center">Don't have an account? <Link to="/register">Register here</Link></Typography>    
+                                <Typography variant="caption" align="center">Already have an account? <Link to="/login">Sign in here</Link></Typography>    
                             </div>
                             
                         </Paper>
@@ -75,4 +85,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register
