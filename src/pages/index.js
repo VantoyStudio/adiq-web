@@ -34,9 +34,9 @@ const IndexPage = () => {
         setNavBackground(show)
       }
     }
-    document.addEventListener('scroll', handleScroll)
+    window.document.addEventListener('scroll', handleScroll)
     return () => {
-      document.removeEventListener('scroll', handleScroll)
+      window.document.removeEventListener('scroll', handleScroll)
     }
   }, [])
   return (
