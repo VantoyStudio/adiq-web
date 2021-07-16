@@ -1,11 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {Typography, Grid, makeStyles} from '@material-ui/core';
 // import { StaticImage } from "gatsby-plugin-image"
 
-
-const desktop = window.screen.width > 1276;
-const pads = window.screen.width > 500;
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -49,6 +46,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Img = (data) => {
+    const [desktop, setDesktop] = useState(true)
+    const [pads, setPads] = useState(true)
+
+    useEffect(()=>{
+        setDesktop(window.screen.width > 1276);
+        setPads(window.screen.width > 500);
+    },[])
+
     const classes = useStyles();
     return (
         <div className={classes.imgDiv}>
