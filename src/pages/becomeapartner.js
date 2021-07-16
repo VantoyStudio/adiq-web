@@ -33,7 +33,7 @@ const BecomeAPartner = () => {
                 title: 'signage'
             },
             content: {
-                h1: "Register or Login",
+                h1: "Why should you register?",
                 h4: "Add your media details and become Media Owner",
                 typo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia tortor vulputate vitae. Lorem ipsum dolor sit amet, consectetur adipi."
             }
