@@ -46,11 +46,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Img = (data) => {
-    const [desktop, setDesktop] = useState(true)
+   
     const [pads, setPads] = useState(true)
 
     useEffect(()=>{
-        setDesktop(window.screen.width > 1276);
         setPads(window.screen.width > 500);
     },[])
 
@@ -88,10 +87,15 @@ const Content = (data) => {
 }
 const Article = (props) => {
     const classes = useStyles();
+    const [desktop, setDesktop] = useState(true)
     const reverse = props.reverse ? props.reverse : false;
     const data = Object.keys(props.data).length > 0 ? props.data : "";
     console.log(data)
-     
+    
+    useEffect(()=>{
+        setDesktop(window.screen.width > 1276);
+    },[])
+
     return (
         <div
             style={{
