@@ -3,17 +3,15 @@ import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import Background from "../components/home/background"
 import MediaTypes from "../components/home/mediatypes"
+import Contact from "../components/home/contact"
+import HowItWorks from "../components/home/howitworks"
 // import Features from "../components/home/features"
 
-import { StaticImage } from "gatsby-plugin-image"
-import {Grid, Button, Typography, TextField} from "@material-ui/core"
+import {Grid, Typography} from "@material-ui/core"
 
 import EventNoteIconOutlined from '@material-ui/icons/EventNote';
 import PersonIconOutlined from '@material-ui/icons/Person';
 import VisibilityIconOutlined from '@material-ui/icons/Visibility';
-import SearchIcon from '@material-ui/icons/Search';
-import AssessmentIcon from '@material-ui/icons/Assessment';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 
 // styles
 // const pageStyles = {
@@ -62,7 +60,7 @@ const IndexPage = () => {
         }}
       >
         <Typography variant="h3" color="ineherit">Achievements</Typography>
-        <Grid flex align="center" container style={{maxWidth: '60vw', padding: '3rem', color: 'white', background: 'black'}}>
+        <Grid flex align="center" container style={{maxWidth: '75vw', padding: '3rem', color: 'white', background: 'black'}}>
           <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
             <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
               <Grid style={{padding: '1.5rem 1rem'}}>
@@ -99,103 +97,8 @@ const IndexPage = () => {
         </Grid>
       </div>
       {/* How it works */}
-      <div
-        style={{
-          // By using the same grid area for both, they are stacked on top of each other
-          gridArea: "1/1",
-          // This centers the other elements inside the hero component
-          placeItems: "center",
-          display: "grid",
-          padding: '2rem 0'
-        }}
-      >
-        <Typography variant="h4" color="ineherit">How It Works?</Typography>
-        <Grid flex align="center" container style={{maxWidth: '60vw', padding: '3rem'}}>
-          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
-              <Grid>
-                <Typography gutterBottom variant="subtitle2">Step 1</Typography>
-              </Grid>
-              <Grid style={{padding: '1.5rem 1rem'}}>
-                <SearchIcon  style={{transform: 'scale(3)'}}/>
-              </Grid>
-              <Grid>
-                <Typography>Browse</Typography>
-                <Typography variant="caption">Media Types and Locations</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
-              <Grid>
-                <Typography gutterBottom variant="subtitle2">Step 2</Typography>
-              </Grid>
-              <Grid style={{padding: '1.5rem 1rem'}}>
-                <AssessmentIcon style={{transform: 'scale(3)'}}/>
-              </Grid>
-              <Grid>
-                <Typography>Compare</Typography>
-                <Typography variant="caption">Compare Media types</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-            <Grid style={{padding: '1rem', borderRadius: '1rem', minWidth: "6rem", display: 'flex', flexDirection: 'column' }}>
-              <Grid>
-                <Typography gutterBottom variant="subtitle2">Step 3</Typography>
-              </Grid>
-              <Grid style={{padding: '1.5rem 1rem'}}>
-                <MonetizationOnIcon style={{transform: 'scale(3)'}}/>
-              </Grid>
-              <Grid>
-                <Typography>Pay</Typography>
-                <Typography variant="caption">Pay up</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-      </div>
-      <div
-        style={{
-          // By using the same grid area for both, they are stacked on top of each other
-          gridArea: "1/1",
-          // This centers the other elements inside the hero component
-          placeItems: "center",
-          display: "grid",
-        }}
-      >
-      {/* Contact form */}
-      <Typography variant="h3">Contact Us</Typography>
-      <Grid container spacing={10} style={{padding: '3rem', width: '70%'}}>
-        <Grid item xs={12} md={6} lg={6}>
-            <StaticImage  
-              alt="photo"
-              src="../images/photo.jpg"
-              layout="fixed"
-              width={450}
-              height={300}
-            />
-        </Grid>
-        <Grid item xs={12} md={6} lg={6}>
-          <form>
-            <div style={{display: 'flex', flexDirection: 'column'}}>
-              <TextField 
-                label="Name" 
-                type="text"
-                variant="outlined"
-                size="small"
-              />
-              <TextField label="email" size="small" type="email" variant="outlined" margin="dense"/>
-              <TextField label="message" size="small" type="text" multiline rows={7} variant="outlined" margin="dense"/>
-            </div>
-            <div style={{marginTop: 15, width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
-              <Button type="submit" style={{width: '50%'}} variant="outlined" color="primary"> Submit </Button>
-            </div>
-          </form>
-        </Grid>
-      </Grid>
-
-      </div>  
+      <HowItWorks />
+      <Contact />  
       {/* <main style={pageStyles}>
         
         <title>Home Page</title>

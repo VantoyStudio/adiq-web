@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import { StaticImage } from "gatsby-plugin-image"
-import {MobileStepper, IconButton, Typography, makeStyles} from "@material-ui/core"
+import {MobileStepper, IconButton, Button, Typography, makeStyles} from "@material-ui/core"
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import {Link} from 'gatsby';
+import {navigate} from 'gatsby';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -29,7 +29,68 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "rgba(0, 0, 1, 0.1)",
         transitionDuration: '1s',
         border: '1px '
+    },
+    stepGrid: {
+        transitionDuration: '1s ease', 
+        width: '40%',
+        marginTop: '-4rem', 
+        background: "rgba(0, 0, 0, 0.1)", 
+        display: 'grid', 
+        placeItems: 'center stretch',
+        [theme.breakpoints.down("sm")]: {
+            marginTop: -20,
+            minWidth: '4rem',
+            width: '100%'
+        }
+    },
+    bgNav: {
+        color: 'rgb(255,255,255,0.5)', 
+        transform: 'scale(2.5)',
+        [theme.breakpoints.down('sm')] : {
+            transform: 'scale(1)'
+        }
+    },
+    bgDiv: {
+        position: "relative", 
+        zIndex: 3, 
+        color: "white", 
+        minWidth: '50vw', 
+        minHeight: "70vh", 
+        display: "grid", 
+        placeItems: "center",
+        [theme.breakpoints.down('sm')]: {
+            height: '100%',
+            maxHeight: '80vh'
+        },
+        [theme.breakpoints.down('xs')]: {
+            minHeight: '95vh'
+        }
+    },
+    heading: {
+        fontSize: '38px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '32px'
+        }
+    },
+    heading5: {
+        fontSize: '36px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '30px'
+        }
+    },
+    content: { 
+        height: "40vh", 
+        display: "grid", 
+        placeItems: "center", 
+        marginTop: '2rem',
+        [theme.breakpoints.down('md')]: {
+            height: '28vh'
+        },
+        [theme.breakpoints.down('xs')]: {
+            height: '35vh'
+        }
     }
+
     
 }));
 
@@ -157,20 +218,18 @@ const Background = (props) => {
                     }}
                 >
                 {/* Any content here will be centered in the component */}
-                    <div style={{position: "relative", zIndex: 3, color: "white", minWidth: '50vw', minHeight: "70vh", display: "grid", placeItems: "center"}}>
-                        <div style={{ minHeight: "30vh", display: "grid", placeItems: "center"}}>
-                            <Typography variant="h3">
+                    <div className={classes.bgDiv}>
+                        <div className={classes.content}>
+                            <Typography className={classes.heading}>
                                 {activeStep === 1 ? "Checkout the Bus" : (activeStep === 2 ? "Visit a Shop" : "Connect to a Screen")}
                                 
                             </Typography>
-                            <Typography variant="h2">One Click</Typography>
-                            <Typography variant="h5" gutterBottom>Book your media now</Typography>
+                            <Typography variant="h3">One Click</Typography>
+                            <Typography className={classes.heading5} gutterBottom>Book your media now</Typography>
                             
-                            <Link className={classes.button} to="/inventory" > 
-                               <Typography variant="button">Check Inventory</Typography>
-                            </Link> 
+                            <Button className={classes.button} variant="contained" onClick={() => navigate('/inventory')}>Check Inventory</Button>
                         </div>
-                        <div style={{transitionDuration: '1s ease', width: '40%', marginTop: '-4rem', background: "rgba(0, 0, 0, 0.1)", display: 'grid', placeItems: 'center stretch'}}>
+                        <div className={classes.stepGrid}>
                             <MobileStepper
                                 variant="dots"
                                 steps={3}
@@ -179,12 +238,12 @@ const Background = (props) => {
                                 className={classes.mobileStepper}
                                 nextButton={
                                     <IconButton onClick={handleNext}>
-                                        <KeyboardArrowRight style={{color: 'rgb(255,255,255,0.5)', transform: 'scale(2.5)'}}/>
+                                        <KeyboardArrowRight className={classes.bgNav}/>
                                     </IconButton>
                                 }
                                 backButton={
                                     <IconButton onClick={handleBack}>
-                                        <KeyboardArrowLeft style={{color: 'rgb(255,255,255,0.5)', transform: 'scale(2.5)'}} />
+                                        <KeyboardArrowLeft className={classes.bgNav} />
                                     </IconButton>
                                 }
                             />

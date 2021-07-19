@@ -24,11 +24,20 @@ export default function PrimarySearchAppBar(props) {
       flexGrow: 1,
       background: 'black',
     },
+    growLeft: {
+      flexGrow: 0,
+      background: 'black',
+      [theme.breakpoints.down('sm')]: {
+        flexGrow: 1
+      }
+    },
     menuButton: {
       marginRight: theme.spacing(2),
       display: 'none',
       [theme.breakpoints.down('md')]: {
-        display: 'flex'
+        display: 'flex',
+        marginLeft: '2px',
+        color: props.scroll ? theme.palette.inherit : 'white'
       }
     },
     title: {
@@ -82,6 +91,16 @@ export default function PrimarySearchAppBar(props) {
         background: (props.scroll) ? 'black' : 'rgb(0,0,0,0.1)',
         color: 'white',
         border: (props.scroll) ? '3px solid black' : '3px solid white',
+      }
+    },
+    moreIcon: {
+      color: props.scroll ? theme.palette.inherit : 'white'
+    },
+    toolbar: {
+      height: props.scroll ? '6rem' : "8rem", 
+      transition: '0.7s',
+      [theme.breakpoints.down('sm')]: {
+        height: '6rem'
       }
     }
   }));
@@ -170,7 +189,7 @@ export default function PrimarySearchAppBar(props) {
   return (
     <div className={classes.grow}>
       <AppBar position="fixed" color={props.scroll ? "inherit" : "transparent"} style={{transition: '0.7s ease'}}>
-        <Toolbar style={props.scroll ? {height: '6rem', transition: '0.7s'} : {height: "8rem", transition: '0.7s'}}>
+        <Toolbar className={classes.toolbar}>
           
           <IconButton
             edge="start"
@@ -180,7 +199,7 @@ export default function PrimarySearchAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          
+          <div className={classes.growLeft}/>
           <div style={{display: 'flex', alignItems: 'center', marginLeft: '1rem'}}>
             <Link className={classes.linkHome} to="/">
               <div>
@@ -216,7 +235,7 @@ export default function PrimarySearchAppBar(props) {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon color="inherit"/>
+              <MoreIcon className={classes.moreIcon}/>
             </IconButton>
           </div>
         </Toolbar>
