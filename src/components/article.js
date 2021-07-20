@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
             maxWidth: '25rem'
         },
         [theme.breakpoints.down('xs')] : {
-            maxWidth: '25rem'
+            maxWidth: '95vw'
         }
     },
     imgDiv: {
@@ -29,14 +29,15 @@ const useStyles = makeStyles((theme) => ({
             maxWidth: '90vw'
         },
         [theme.breakpoints.down('xs')] : {
-            maxWidth: '25rem'
+            maxWidth: '95vw'
         }
     },
     contentDiv: {
-        width: '30rem', 
+        width: '28vw', 
         alignSelf: 'flex-start',
         [theme.breakpoints.down('md')] : {
-            width: '35rem',
+            width: '100%',
+            maxWidth: '35vw',
             alignSelf: 'center',
         },
         [theme.breakpoints.down('xs')] : {
@@ -50,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down("sm")]: {
             height: '240px',
             width: '360px',
+        },
+        [theme.breakpoints.down("xs")]: {
+            width: '85vw',
         }
     }
 }));

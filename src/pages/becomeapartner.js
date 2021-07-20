@@ -14,9 +14,13 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         minHeight: '30rem',
-        minWidth: '25rem',
         width: '70rem',
-        padding: '2rem'
+        padding: '2rem',
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+            maxWidth: '85vw',
+            padding: '1rem'
+        }
     }
     
 }));

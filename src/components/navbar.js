@@ -1,7 +1,8 @@
 import React from 'react';
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import {Toolbar, Button} from '@material-ui/core';
+import {Toolbar, Button, Drawer, List, ListItem, ListItemIcon, ListItemText, Divider} from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
@@ -102,12 +103,84 @@ export default function PrimarySearchAppBar(props) {
       [theme.breakpoints.down('sm')]: {
         height: '6rem'
       }
-    }
+    },
+    list: {
+      width: 250,
+    },
+    fullList: {
+      width: 'auto',
+    },
   }));
   
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
+
+  ///////////////////////////////////////////////////////
+
+  const [state, setState] = React.useState({
+    left: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor) => (
+    <div
+      className={clsx(classes.list, {
+        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+      })}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        <ListItem button onClick={() => {navigate('/')}}>
+            <ListItemIcon>H</ListItemIcon>
+            <ListItemText primary={"Home"} />
+        </ListItem>
+        <ListItem button onClick={() => {navigate('/inventory')}}>
+            <ListItemIcon>I</ListItemIcon>
+            <ListItemText primary={"Inventory"} />
+        </ListItem>
+        <ListItem button onClick={() => {navigate('/about')}}>
+            <ListItemIcon>A</ListItemIcon>
+            <ListItemText primary={"About Us"} />
+        </ListItem>
+        <ListItem button onClick={() => {navigate('/howitworks')}}>
+            <ListItemIcon>H</ListItemIcon>
+            <ListItemText primary={"How It Works?"} />
+        </ListItem>
+        <ListItem button onClick={() => {navigate('/becomeapartner')}}>
+            <ListItemIcon>A</ListItemIcon>
+            <ListItemText primary={"Become A Partner"} />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))} */}
+        <ListItem button onClick={() => {navigate('/login')}}>
+            <ListItemIcon>L</ListItemIcon>
+            <ListItemText primary={"Log In"} />
+        </ListItem>
+      </List>
+    </div>
+  );
+
+
+  ///////////////////////////////////////////////////////
+
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -191,14 +264,24 @@ export default function PrimarySearchAppBar(props) {
       <AppBar position="fixed" color={props.scroll ? "inherit" : "transparent"} style={{transition: '0.7s ease'}}>
         <Toolbar className={classes.toolbar}>
           
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
+          {['left'].map((anchor) => (
+            <React.Fragment key={anchor}>
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="open drawer"
+                onClick={toggleDrawer(anchor, true)}
+              >
+              <MenuIcon />
+              </IconButton>
+              <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+              {list(anchor)}
+              </Drawer>
+            </React.Fragment>
+          ))}
+
+          
           <div className={classes.growLeft}/>
           <div style={{display: 'flex', alignItems: 'center', marginLeft: '1rem'}}>
             <Link className={classes.linkHome} to="/">
