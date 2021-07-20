@@ -1,20 +1,44 @@
 import React from 'react'
 import { StaticImage } from "gatsby-plugin-image";
-import {Typography} from '@material-ui/core';
+import {Typography, makeStyles} from '@material-ui/core';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import InstagramIcon from '@material-ui/icons/Instagram';
 
+const useStyles = makeStyles(theme => ({
+    root: {
+        display: "flex", 
+        minWidth: '50vw', 
+        width: '80%', 
+        alignItems: 'center', 
+        justifyContent: "space-between"
+    },
+    logoDiv: {
+        transform: 'scale(0.9)'
+    },
+    linksDiv: {
+        width: "70%", 
+        minWidth: '20vw'
+    }
+}))
+
 const Footer = () => {
+    const classes = useStyles();
     return (
         <div style={{height: '45vh', placeItems: "center", display: "grid", gridArea: "1/1", border: '1px 0 0 0 grey'}}>
             <hr style={{width: '90%'}}/>
-            <div style={{display: "flex", minWidth: '50vw', width: '80%', alignItems: 'center', justifyContent: "space-between"}}>
-                <div>
-                    <StaticImage src="../images/logo2.png" alt="logo2" height={71} width={75} placeholder="blurred"
-      layout="fixed"/>
+            <div className={classes.root}>
+                <div className={classes.logoDiv}>
+                    <StaticImage 
+                        src="../images/logo2.png" 
+                        alt="logo2" 
+                        height={71} 
+                        width={75} 
+                        placeholder="blurred"
+                        layout="fixed"
+                    />
                 </div>
-                <div style={{width: "70%", minWidth: '20vw'}}>
+                <div className={classes.linksDiv}>
                     <div style={{display: "flex", alignItems: 'flex-start',  justifyContent: "space-evenly" }}>
                         <div style={{display: 'grid'}}>
                             <Typography variant="subtitle2"><strong>FAQs</strong></Typography>

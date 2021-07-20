@@ -5,6 +5,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const useStyles = makeStyles((theme) => ({
     checkboxRoot: {
       display: 'flex',
+      width: '100%',
+      maxWidth: '80vw',
+      [theme.breakpoints.down('sm')]: {
+          flexDirection: 'column'
+      }
     },
     formGroup: {
         display: 'flex'
@@ -21,6 +26,41 @@ const useStyles = makeStyles((theme) => ({
             background: theme.palette.secondary.main,
             color: 'white',
         }
+    },
+    firstDiv: {
+        display: 'flex', 
+        width: '100%',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column'
+        }
+    },
+    sliderDivOuter: {
+        display: 'grid', 
+        placeItems: 'right', 
+        width: '100%', 
+        
+    },
+    sliderDiv: {
+        display: 'grid', 
+        placeItems: 'right', 
+        width: '100%', 
+        maxWidth: '80vw',
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '60vw',
+            marginLeft: '1.5rem'
+        }
+    },
+    innerDivAcc: {
+        display: 'flex',
+        maxWidth: '45rem', 
+        justifyContent: 'space-between',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            maxWidth: '70vw',
+            width: '100%'
+        },
+        
+
     }
   }));
 
@@ -50,8 +90,8 @@ const PrettoSlider = withStyles((theme) => ({
       borderRadius: 4,
     },
     rail: {
-      height: 8,
-      borderRadius: 4,
+      height: 9,
+      borderRadius: 5,
     },
   }))(Slider);
 
@@ -92,15 +132,15 @@ const FilteredMedia = (props) => {
     const marks = [
         {
           value: 1,
-          label: 'BDT 100,000',
+          label: 'BDT 100K',
         },
         {
           value: 5,
-          label: 'BDT 500,000',
+          label: 'BDT 500K',
         },
         {
           value: 10,
-          label: 'BDT 1,000,000',
+          label: 'BDT 1M',
         },
       ];
     const classes = useStyles();
@@ -112,14 +152,13 @@ const FilteredMedia = (props) => {
                 // This centers the other elements inside the hero component
                 placeItems: "center",
                 display: "grid",
-                padding: '2rem'
             }}
         >
             <h3>Filter your Media Type</h3>
             <div style={{display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', width: '75%', padding: '2rem 0'}}>
                 <form style={{width: '100%'}}>
-                    <div style={{display: 'flex', width: '100%'}}>
-                        <div style={{display: 'grid', placeItems: 'left', width: '100%'}}>
+                    <div className={classes.firstDiv}>
+                        <div style={{display: 'grid', placeItems: 'left', width: '100%', maxWidth: '70vw'}}>
                             <h3 style={{textAlign: 'left', marginBottom: '-5px'}}>Media Types</h3>
                             <div className={classes.checkboxRoot}>
                                 <FormControlLabel
@@ -136,9 +175,9 @@ const FilteredMedia = (props) => {
                                 />
                             </div>
                         </div>
-                        <div style={{display: 'grid', placeItems: 'right', width: '100%'}}>
+                        <div className={classes.sliderDivOuter}>
                             <h3 style={{textAlign: 'left'}}>Budget</h3>
-                            <div>
+                            <div className={classes.sliderDiv}>
                                 <PrettoSlider 
                                     valueLabelDisplay="off" 
                                     aria-label="pretto slider"
@@ -167,8 +206,8 @@ const FilteredMedia = (props) => {
                                 <Typography className={classes.heading}>Choose Demographics</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails style={{width: "100%"}}>
-                                    <div style={{width: "100%"}}>
-                                        <div style={{display: 'flex',maxWidth: '45rem', justifyContent: 'space-between'}}>
+                                    <div style={{display: 'grid', placeItems: 'stretch stretch', width: "100%"}}>
+                                        <div className={classes.innerDivAcc}>
                                             <div>
                                                 {/* Age */}
                                                 <h4>Age</h4>

@@ -15,15 +15,25 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         fontSize: '2.5rem'
     },
-    cardRoot: {
-        maxWidth: 320,
-    },
-    media: {
-        height: 170,
-    },
+    
     container: {
         flexGrow: 1,   
-    }
+    },
+    cardRoot: {
+      maxWidth: 300,
+      [theme.breakpoints.down('md')]: {
+        maxWidth: 250
+      },
+      [theme.breakpoints.down('sm')]: {
+        marginBottom: 20
+      },
+    },
+    media: {
+      height: 220,
+      [theme.breakpoints.down('md')]: {
+        height: 180
+      }
+    },
     
 }));
 

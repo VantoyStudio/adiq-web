@@ -3,22 +3,51 @@ import {Button, Grid, Card, CardActionArea, CardContent, CardMedia, Typography, 
 import photo from '../../images/photo.jpg'
 import {navigate} from 'gatsby';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-evenly',
         width: '100%',
         minWidth: '60rem',
-        padding: '0.5rem 0'
+        padding: '0.5rem 0',
+        [theme.breakpoints.down('md')]: {
+            minWidth: '60vw'
+        },
+        [theme.breakpoints.down('sm')]: {
+            maxWidth: '80vw',
+            flexDirection: 'column',
+            marginBottom: '1rem',
+            alignItems: 'center',
+            height: '100%',
+        },
     },
     cardRoot: {
       maxWidth: 300,
+      [theme.breakpoints.down('md')]: {
+        maxWidth: 250
+      },
+      [theme.breakpoints.down('sm')]: {
+        marginBottom: 20
+      },
     },
     media: {
       height: 220,
+      [theme.breakpoints.down('md')]: {
+        height: 180
+      }
     },
-  });
+    mediaNav: {
+        display: 'flex', 
+        justifyContent: 'space-evenly', 
+        alignItems: 'center', 
+        width: '70%', 
+        padding: '5rem 0',
+        [theme.breakpoints.down('md')]: {
+            width: '100%'
+        }
+    }
+  }));
 
 const MediaTypes = (props) => {
     const classes = useStyles();
@@ -30,11 +59,11 @@ const MediaTypes = (props) => {
                 // This centers the other elements inside the hero component
                 placeItems: "center",
                 display: "grid",
-                padding: '2rem'
+                width: '100%'
             }}
         >
             <h3>Browser througth different Media Types</h3>
-            <div style={{display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', width: '70%', padding: '5rem 0'}}>
+            <div className={classes.mediaNav}>
                 {  [{name: 'Billboards', addr: '#billboards'}, 
                     {name: 'Shops', addr: '#shops'}, 
                     {name: 'Buses', addr: '#buses'}, 
@@ -49,10 +78,10 @@ const MediaTypes = (props) => {
             <hr style={{width: '80%'}}/>
             <div id="billboards" style={{height: '100%', display: 'grid', placeItems: 'center', padding: '5rem 0'}}>
                 <h3 style={{textAlign: 'center', marginBottom: '-5rem'}}>Billboards</h3>
-                <div>
+                <div style={{width: '100%'}}>
                     <Grid className={classes.root}>
-                        <Card className={classes.cardRoot}>
-                            <CardActionArea onClick={()=>navigate('billboards#digital')}>
+                        <Card onClick={()=>navigate('billboards#digital')} className={classes.cardRoot}>
+                            <CardActionArea>
                                 <CardMedia
                                 className={classes.media}
                                 image={photo}

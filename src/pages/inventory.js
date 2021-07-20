@@ -4,9 +4,22 @@ import Footer from "../components/footer"
 import MediaTypes from "../components/inventory/mediatypes"
 import FilteredMedia from "../components/inventory/filtered"
 
-import {Paper, Grid, Tabs, Tab} from "@material-ui/core"
+import {Paper, Grid, Tabs, Tab, makeStyles} from "@material-ui/core"
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        width: '70%',
+        display: 'grid', 
+        placeItems: 'center',
+        [theme.breakpoints.down('sm')]: {
+            width: '92%'
+        },
+
+    }
+}))
 
 const Inventory = () => {
+    const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -34,8 +47,8 @@ const Inventory = () => {
                             padding: '1rem 0'
                         }}
                     >
-                        <div style={{width: '70%', placeItems: 'center'}}>
-                            <Paper style={{height: '100%'}}> 
+                        <div className={classes.root}>
+                            <Paper style={{height: '100%', width: '100%'}}> 
                                 <Grid style={{display: 'flex', justifyContent: 'center'}}>
                                     <Tabs
                                         value={value}

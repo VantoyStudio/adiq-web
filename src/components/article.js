@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         justifyContent: 'space-between',
-        width: '70rem',
+        width: '65vw',
         alignItems: 'flex-start',
         height: '100%',
         [theme.breakpoints.down('md')] : {
@@ -22,10 +22,11 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     imgDiv: {
-        width: '35rem',
+        width: '35vw',
         alignSelf: 'center',
         [theme.breakpoints.down('md')]: {
-            width: '100%'
+            width: '100%',
+            maxWidth: '90vw'
         },
         [theme.breakpoints.down('xs')] : {
             maxWidth: '25rem'
@@ -42,32 +43,36 @@ const useStyles = makeStyles((theme) => ({
             maxWidth: '25rem'
         }
 
+    },
+    img: {
+        height: '340px',
+        width: '480px',
+        [theme.breakpoints.down("sm")]: {
+            height: '240px',
+            width: '360px',
+        }
     }
 }));
 
 const Img = (data) => {
    
-    const [pads, setPads] = useState(true)
+    // const [pads, setPads] = useState(true)
 
-    useEffect(()=>{
-        setPads(window.screen.width > 500);
-    },[])
+    // useEffect(()=>{
+    //     setPads(window.screen.width > 500);
+    // },[])
 
     const classes = useStyles();
     return (
         <div className={classes.imgDiv}>
-            <Grid style={{display: 'grid', placeItems: 'center', background: 'black', padding: '1rem', borderRadius: '10px', margin: '1rem 0'}}>
+            <div style={{display: 'grid', placeItems: 'center', background: 'black', padding: '1rem', borderRadius: '10px', margin: '1rem 0'}}>
                 <img  
                     alt={data.title}
                     src={data.src}
                     layout="fixed"
-                    width={pads ? 520 : 300}
-                    height={300}
-                    style={{
-                        gridArea: "1/1"
-                    }}
-                    />
-            </Grid>
+                    className={classes.img}
+                />
+            </div>
         </div>
     )
 }
