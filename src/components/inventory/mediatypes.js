@@ -62,7 +62,7 @@ const MediaTypes = (props) => {
                 width: '100%'
             }}
         >
-            <h3>Browser througth different Media Types</h3>
+            <h3 style={{textAlign: 'center'}}>Browser different types of Media</h3>
             <div className={classes.mediaNav}>
                 {  [{name: 'Billboards', addr: '#billboards'}, 
                     {name: 'Shops', addr: '#shops'}, 
