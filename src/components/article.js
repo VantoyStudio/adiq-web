@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         justifyContent: 'space-between',
-        width: '65vw',
+        width: '70vw',
         alignItems: 'flex-start',
         height: '100%',
         [theme.breakpoints.down('md')] : {
@@ -15,18 +15,18 @@ const useStyles = makeStyles((theme) => ({
             justifyContent: 'center',
             width: '100%',
             alignItems: 'center',
-            maxWidth: '25rem'
+            maxWidth: '80vw'
         },
         [theme.breakpoints.down('xs')] : {
             maxWidth: '95vw'
         }
     },
     imgDiv: {
-        width: '35vw',
+        width: '36vw',
         alignSelf: 'center',
         [theme.breakpoints.down('md')]: {
             width: '100%',
-            maxWidth: '90vw'
+            maxWidth: '100vw'
         },
         [theme.breakpoints.down('xs')] : {
             maxWidth: '95vw'
@@ -37,17 +37,17 @@ const useStyles = makeStyles((theme) => ({
         alignSelf: 'flex-start',
         [theme.breakpoints.down('md')] : {
             width: '100%',
-            maxWidth: '35vw',
+            maxWidth: '75vw',
             alignSelf: 'center',
         },
         [theme.breakpoints.down('xs')] : {
-            maxWidth: '25rem'
+            maxWidth: '85vw'
         }
 
     },
     img: {
         height: '340px',
-        width: '480px',
+        width: '430px',
         [theme.breakpoints.down("sm")]: {
             height: '240px',
             width: '360px',
