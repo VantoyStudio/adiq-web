@@ -37,6 +37,14 @@ const useStyles = makeStyles((theme) => ({
     minWidth: '50vw',
     padding: '2rem'
   },
+  secondStep: {
+    border: '1px solid black', 
+    display: 'flex', 
+    width: '100%',
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column'
+    }
+  }
 }));
 
 function getSteps() {
@@ -129,7 +137,7 @@ export default function HorizontalLabelPositionBelowStepper() {
             ) : ( activeStep === 1 ? (
                     <div>
                       <h3 style={{textAlign: "center"}}> Configure your {billboard ? "Billboard" : "Shop"}</h3> 
-                      <div style={{border: '1px solid black', display: 'flex', width: '100%'}}>
+                      <div className={classes.secondStep}>
                         <div style={{display: 'grid', placeItems: 'center', width: '28%'}}>
                           {
                             billboard ? (
