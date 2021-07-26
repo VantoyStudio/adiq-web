@@ -61,8 +61,8 @@ export default function PrimarySearchAppBar(props) {
     },
     link: {
         color: 'black',
-        fontSize: '1rem',
-        margin: '10px 2rem',
+        fontSize: '15px',
+        margin: '10px 1.5rem',
         textDecoration: 'none',
         transitionDuration: '0.5s',
         "&:hover": {

@@ -50,13 +50,21 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: '1.5rem'
         }
     },
+    divAcc: {
+        display: 'grid', 
+        placeItems: 'center stretch', 
+        width: "100%",
+        [theme.breakpoints.down('sm')]: {
+            placeItems: 'center',
+            display: 'flex'
+        }
+    },
     innerDivAcc: {
         display: 'flex',
         maxWidth: '45rem', 
         justifyContent: 'space-between',
         [theme.breakpoints.down('sm')]: {
-            flexDirection: 'column',
-            maxWidth: '70vw',
+            maxWidth: '90vw',
             width: '100%'
         },
         
@@ -162,15 +170,15 @@ const FilteredMedia = (props) => {
                             <h3 style={{textAlign: 'left', marginBottom: '-5px'}}>Media Types</h3>
                             <div className={classes.checkboxRoot}>
                                 <FormControlLabel
-                                    control={<Checkbox color="primary" checked={billboards} onChange={handleChange} name="billboards" />}
+                                    control={<Checkbox color="primary" size="small" checked={billboards} onChange={handleChange} name="billboards" />}
                                     label="Billboards"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox color="primary" checked={shops} onChange={handleChange} name="shops" />}
+                                    control={<Checkbox color="primary" size="small" checked={shops} onChange={handleChange} name="shops" />}
                                     label="Shops"
                                 />
                                 <FormControlLabel
-                                    control={<Checkbox color="primary" checked={buses} onChange={handleChange} name="buses" />}
+                                    control={<Checkbox color="primary" size="small" checked={buses} onChange={handleChange} name="buses" />}
                                     label="Buses"
                                 />
                             </div>
@@ -205,23 +213,23 @@ const FilteredMedia = (props) => {
                                 >
                                 <Typography className={classes.heading}>Choose Demographics</Typography>
                                 </AccordionSummary>
-                                <AccordionDetails style={{width: "100%"}}>
-                                    <div style={{display: 'grid', placeItems: 'stretch stretch', width: "100%"}}>
+                                <AccordionDetails style={{width: "100%", padding: '0.5rem'}}>
+                                    <div className={classes.divAcc}>
                                         <div className={classes.innerDivAcc}>
                                             <div>
                                                 {/* Age */}
                                                 <h4>Age</h4>
                                                 <div className={classes.checkboxRoot}>
                                                     <FormControlLabel
-                                                        control={<Checkbox color="primary" checked={q1} onChange={handleAgeChange} name="q1" />}
+                                                        control={<Checkbox color="primary" size="small" checked={q1} onChange={handleAgeChange} name="q1" />}
                                                         label="18-25"
                                                     />
                                                     <FormControlLabel
-                                                        control={<Checkbox color="primary" checked={q2} onChange={handleAgeChange} name="q2" />}
+                                                        control={<Checkbox color="primary" size="small" checked={q2} onChange={handleAgeChange} name="q2" />}
                                                         label="26-50"
                                                     />
                                                     <FormControlLabel
-                                                        control={<Checkbox color="primary" checked={q3} onChange={handleAgeChange} name="q3" />}
+                                                        control={<Checkbox color="primary" size="small" checked={q3} onChange={handleAgeChange} name="q3" />}
                                                         label="50+"
                                                     />
                                                 </div>
@@ -231,15 +239,15 @@ const FilteredMedia = (props) => {
                                                 <h4>Gender</h4>
                                                 <div className={classes.checkboxRoot}>
                                                     <FormControlLabel
-                                                        control={<Checkbox color="primary" checked={male} onChange={handleGenderChange} name="male" />}
+                                                        control={<Checkbox color="primary" size="small" checked={male} onChange={handleGenderChange} name="male" />}
                                                         label="Male"
                                                     />
                                                     <FormControlLabel
-                                                        control={<Checkbox color="primary" checked={female} onChange={handleGenderChange} name="female" />}
+                                                        control={<Checkbox color="primary" size="small" checked={female} onChange={handleGenderChange} name="female" />}
                                                         label="Female"
                                                     />
                                                     <FormControlLabel
-                                                        control={<Checkbox color="primary" checked={other} onChange={handleGenderChange} name="other" />}
+                                                        control={<Checkbox color="primary" size="small" checked={other} onChange={handleGenderChange} name="other" />}
                                                         label="Other"
                                                     />
                                                 </div>
